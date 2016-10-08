@@ -59,11 +59,11 @@ a.tag:hover {
 }
 
 body, .panel-title {
-	font-family: FiraSansRegulat "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: FiraSansRegulat, "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 h2, h3, h4, h5, h6 {
-	font-family: SansusWebissimoRegular "Helvetica Neue" Helvetica Arial sans-serif;
+	font-family: SansusWebissimoRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1 {
