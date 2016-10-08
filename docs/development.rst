@@ -68,7 +68,7 @@ sake of the demo, we'll use the main repository URL::
 
 Create your own branch, ie::
 
-    $ git checkout -b yourbranch origin/pr
+    $ git checkout -b yourbranch
     Branch yourbranch set up to track remote branch pr from origin.
     Switched to a new branch 'yourbranch'
 
