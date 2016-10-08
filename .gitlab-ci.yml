@@ -11,6 +11,6 @@ job install:
                 - memopol collectstatic --noinput
                 - touch /etc/uwsgi/apps-enabled/memopol.ini
         stage: deploy
-        tags: memopol
+        tags: [memopol]
         only:
                 - master
