@@ -1,3 +1,8 @@
+job test:
+        script:
+                - tox
+        stage: test
+        tags: [memopol]
 job install:
         script:
                 - source /srv/memopol/memopol_env/bin/activate
