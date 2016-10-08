@@ -1,0 +1,16 @@
+job install:
+        script:
+                - source /srv/memopol/memopol_env/bin/activate
+                - cd /srv/memopol/memopol_env/src/memopol
+                - git fetch origin
+                - git reset --hard origin/master
+                - find . -name '*.pyc' -delete
+                - pip install -Ue .
+                - src/memopol/bin/install_client_deps.sh
+                - memopol migrate --noinput
+                - memopol collectstatic --noinput
+                - touch /etc/uwsgi/apps-enabled/memopol.ini
+        stage: deploy
+        tags: memopol
+        only:
+                - master
