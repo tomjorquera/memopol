@@ -68,7 +68,7 @@ sake of the demo, we'll use the main repository URL::
 
 Create your own branch, ie::
 
-    $ git checkout -b yourbranch origin/pr
+    $ git checkout -b yourbranch
     Branch yourbranch set up to track remote branch pr from origin.
     Switched to a new branch 'yourbranch'
 
@@ -93,7 +93,7 @@ Install client dependencies
 
 We'll also need to download client libraries::
 
-    $ bin/install_client_deps.sh
+    $ src/memopol/bin/install_client_deps.sh
     * Downloading jquery/jquery (2.1.4) from Github...
     * Downloading FortAwesome/Font-Awesome (v4.3.0) from Github...
     * Downloading lipis/flag-icon-css (0.7.1) from Github...
