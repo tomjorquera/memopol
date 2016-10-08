@@ -59,14 +59,15 @@ a.tag:hover {
 }
 
 body, .panel-title {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: FiraSansRegulat "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: Propaganda, "Helvetica Neue",Helvetica,Arial,sans-serif;
+h2, h3, h4, h5, h6 {
+	font-family: SansusWebissimoRegular "Helvetica Neue" Helvetica Arial sans-serif;
 }
 
 h1 {
+	font-family: Propaganda, "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 2.5em;
 }
 
@@ -468,7 +469,3 @@ iframe {
 .text-danger {
     color: #ab181d !important;
 }
-
-
-
-
