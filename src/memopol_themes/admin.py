@@ -1,3 +1,5 @@
+from dal import autocomplete
+
 from django import forms
 from django.contrib import admin
 
@@ -76,6 +78,11 @@ class ThemedPositionAdminForm(ThemedAdminForm):
         model = Position
         fields = ('representative', 'datetime', 'kind', 'title', 'score',
                   'text', 'link', 'published', 'themes')
+        widgets = {
+            'representative': autocomplete.ModelSelect2(
+                url='representative-autocomplete',
+            )
+        }
 
 
 class ThemedDossierAdmin(DossierAdmin):

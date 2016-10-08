@@ -5,7 +5,10 @@ from django.contrib import admin
 
 from views.home import HomeView
 
-from views.dossier_ac import ProposalAutocomplete
+from views.autocomplete import (
+    ProposalAutocomplete,
+    RepresentativeAutocomplete,
+)
 from views.dossier_detail_base import DossierDetailBase
 from views.dossier_detail_recommendations import DossierDetailRecommendations
 from views.dossier_detail_proposals import DossierDetailProposals
@@ -119,13 +122,19 @@ urlpatterns = [
         name='dossier-documents'
     ),
 
-    # Dossier autocomplete for admin
+    # Autocomplete
 
     url(
         r'^autocomplete/proposal/$',
         ProposalAutocomplete.as_view(),
         name='proposal-autocomplete',
     ),
+    url(
+        r'^autocomplete/representative/$',
+        RepresentativeAutocomplete.as_view(),
+        name='representative-autocomplete',
+    ),
+
 
     # Theme list
 
