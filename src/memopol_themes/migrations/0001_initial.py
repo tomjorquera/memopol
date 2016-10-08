@@ -8,11 +8,23 @@ import autoslug.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('representatives_votes', '0012_document'),
-        ('representatives_positions', '0003_remove_position_tags'),
+        ('representatives_votes', '0001_initial'),
+        ('representatives_positions', '0001_initial'),
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='ThemeScore',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('score', models.FloatField(default=0)),
+            ],
+            options={
+                'ordering': ['theme__slug'],
+                'db_table': 'memopol_themes_themescore',
+                'managed': False,
+            },
+        ),
         migrations.CreateModel(
             name='Theme',
             fields=[
