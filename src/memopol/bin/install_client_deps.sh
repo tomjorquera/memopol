@@ -29,7 +29,7 @@ function downloadFromGithub()
 		return
 	fi
 	echo "* Downloading $repo ($ref) from Github..."
-	wget -O temp.zip -q "https://git.laquadrature.net/${repo}/archive.sip?ref=/${ref}"
+	wget -O temp.zip -q https://github.com/${repo}/archive/${ref}.zip
 	unzip -q temp.zip
 	mv $(basename ${repo})* ${dest}
 	rm temp.zip
