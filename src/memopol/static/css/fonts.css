@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'SansusWebissimoItalic';
+    src: url('https://fonts.lqdn.fr/collections/Sansus_Webissimo/SansusWebissimo-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SansusWebissimoRegular';
+    src: url('https://fonts.lqdn.fr/collections/Sansus_Webissimo/SansusWebissimo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'FiraSansRegular';
+	src: url('https://fonts.lqdn.fr/collections/Fira_Sans/FiraSans-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FiraSansMedium';
+	src: url('https://fonts.lqdn.fr/collections/Fira_Sans/FiraSans-Medium.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FiraSansSemiBold';
+	src: url('https://fonts.lqdn.fr/collections/Fira_Sans/FiraSans-SemiBold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FiraSansBook';
+	src: url('https://fonts.lqdn.fr/collections/Fira_Sans/FiraSans-Book.woff2') format('woff2');
+	font-weight: lighter;
+	font-style: normal;
+}
