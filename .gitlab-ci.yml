@@ -17,5 +17,6 @@ job install:
                 - sudo service uwsgi restart memopol
         stage: deploy
         tags: [memopol]
+        environment: production
         only:
                 - master
