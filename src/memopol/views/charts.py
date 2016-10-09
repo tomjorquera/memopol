@@ -2,7 +2,7 @@ import datetime
 import json
 
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.views import generic
 
 from representatives.models import Chamber, Representative
@@ -29,7 +29,8 @@ class ThemeScoresJSONView(generic.View):
         data = {
             "theme": theme.name,
             "scores": [ts['score'] for ts in
-                       ThemeScore.objects.filter(theme=theme).order_by('score').values('score')]
+                       ThemeScore.objects.filter(theme=theme).order_by('score')
+                       .values('score')]
         }
 
         return HttpResponse(json.dumps(data), content_type='application/json')
