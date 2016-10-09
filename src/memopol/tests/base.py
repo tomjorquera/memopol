@@ -8,6 +8,7 @@ class BaseTest(ResponseDiffTestMixin, test.TestCase):
 
     """
     Common queries
+    - 1 for settings
     - 5 for search forms
         - 1 for chambers
         - 1 for countries
@@ -18,7 +19,7 @@ class BaseTest(ResponseDiffTestMixin, test.TestCase):
         - 1 for representatives
         - 1 for themes
     """
-    left_pane_queries = 7
+    left_pane_queries = 8
 
     def setUp(self):
         RepresentativeScore.refresh()

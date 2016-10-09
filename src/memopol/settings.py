@@ -99,6 +99,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
 )
 
+if 'debug_toolbar' in INSTALLED_APPS:
+    MIDDLEWARE_CLASSES += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
 #
 # Sessions
 #

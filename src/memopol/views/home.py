@@ -29,6 +29,7 @@ class HomeView(PositionFormMixin, RepresentativeViewMixin,
         qs = qs.filter(Q(representative_score__score__lt=0) |
                        Q(representative_score__score__gt=0))
         qs = self.prefetch_for_representative_country_and_main_mandate(qs)
+        qs = qs.select_related('representative_score')
 
         random.seed(datetime.date.today().isoformat())
         index = random.randint(0, qs.count() - 1)
@@ -52,6 +53,9 @@ class HomeView(PositionFormMixin, RepresentativeViewMixin,
         num = int(Setting.objects.get(pk='HOMEPAGE_LATEST_VOTES').value)
         c['latest_votes'] = Proposal.objects \
             .filter(recommendation__isnull=False) \
+            .select_related('dossier', 'recommendation') \
+            .prefetch_related('themes', 'dossier__themes',
+                              'dossier__documents__chamber') \
             .order_by('-datetime')[0:num]
 
         return c
