@@ -13,7 +13,7 @@ job install:
                 - find . -name '*.pyc' -delete
                 - pip install -Ue .
                 - src/memopol/bin/install_client_deps.sh
-#                - memopol migrate --noinput
+                - memopol migrate --noinput
                 - memopol collectstatic --noinput
                 - sudo service uwsgi restart memopol
         stage: deploy
