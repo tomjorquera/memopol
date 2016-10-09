@@ -1,6 +1,6 @@
 job test:
         script:
-                - tox
+                - env
         stage: test
         tags: [memopol]
 job install:
