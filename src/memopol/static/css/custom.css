@@ -92,7 +92,6 @@ a.custom-invisible, a.custom-invisible:hover, a.custom-invisible:focus {
 }
 
 
-
 /***************************************************************
 					Forms
 ***************************************************************/
@@ -261,7 +260,7 @@ a:hover .custom-thumbnail-details {
     position: relative;
 }
 
-.custom-listMEP .thumbnail .badge,
+.representative-card .thumbnail .badge,
 .position-button .badge {
 	position: absolute;
 	top: -0.5em;
@@ -333,6 +332,12 @@ iframe {
     background-size: cover;
 }
 
+.todays-mep .representative-card .img-responsive {
+    width: 150px;
+    height: 150px;
+}
+
+
 .representative-card h4 {
     margin-top: 15px;
 }
@@ -363,6 +368,44 @@ iframe {
     position: absolute;
     top: -0.5em;
     right: 0.5em;
+}
+
+
+/***************************************************************
+                    Themes
+***************************************************************/
+
+.theme-card .description {
+    margin: 0 1em;
+    line-height: 1.2em;
+}
+
+.theme-card .info-container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1em;
+}
+
+.theme-card .badge-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.theme-card .badge-container .label {
+    margin: .25em 0;
+}
+
+.theme-card .chart-container {
+    flex-grow: 1;
+    height: 125px;
+    margin-left: .5em;
+
+    border: 1px solid #ddd;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /***************************************************************
@@ -401,6 +444,10 @@ iframe {
     margin-left: 1em;
 }
 
+.proposal-details, .proposal-details td {
+    border: 0 !important;
+}
+
 /***************************************************************
                     Icones
 ***************************************************************/
@@ -437,6 +484,7 @@ iframe {
 .icon-badge + .icon-badge {
     margin-left: .5em;
 }
+
 
 .vote_positive {
     color: green;

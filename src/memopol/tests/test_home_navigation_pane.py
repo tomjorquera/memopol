@@ -8,7 +8,24 @@ class NavigationPaneTest(BaseTest):
         # First query to set session variables
         self.client.get(self.url)
 
-        with self.assertNumQueries(self.left_pane_queries):
+        """
+        Today mep
+        - 1 for count reps with non null score
+        - 1 for random mep
+        - 1 for prefetch main mandate
+        Latest votes
+        - 1 for latest votes count setting
+        - 1 for latest votes (proposal)
+        - 1 for prefetching latest votes themes
+        - 1 for prefetching latest votes dossier themes
+        - 1 for prefetching latest votes dossier documents
+        - 1 for prefetching latest votes dossier documents chambers
+        Featured themes
+        - 1 for featured themes
+        """
+        home_queries = 10
+
+        with self.assertNumQueries(self.left_pane_queries + home_queries):
             self.client.get(self.url)
 
     def test_rep_search_chambers(self):

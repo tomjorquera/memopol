@@ -12,7 +12,7 @@
   </h1>
   <p class="lead text-center hidden-xs">{% trans "What is Memopol ?" %}</p>
   <p class="text-justify hidden-xs">
-    {% include "text/short_description.html" %}
+    {{ HOMEPAGE_INTRO_TEXT }}
   </p>
   {% if position_form %}
     <div class="container-fluid hidden-xs">
