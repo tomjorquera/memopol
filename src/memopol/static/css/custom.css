@@ -261,7 +261,7 @@ a:hover .custom-thumbnail-details {
     position: relative;
 }
 
-.custom-listMEP .thumbnail .badge,
+.representative-card .thumbnail .badge,
 .position-button .badge {
 	position: absolute;
 	top: -0.5em;
@@ -332,6 +332,12 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.todays-mep .representative-card .img-responsive {
+    width: 150px;
+    height: 150px;
+}
+
 
 .representative-card h4 {
     margin-top: 15px;

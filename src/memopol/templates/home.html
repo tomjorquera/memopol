@@ -22,6 +22,20 @@
     </div>
 
     <div class="col-md-4">
+      placeholder
+    </div>
+
+    <div class="col-md-4">
+      placeholder
+    </div>
+
+    <div class="col-md-4 todays-mep">
+      <h2>{% trans "Today's Representative" %}</h2>
+
+      {% include "representatives/_representative_card.html" with representative=todays_mep cols=12 %}
+    </div>
+
+    <div class="col-md-4">
       <h3>{% trans "More information" %}</h3>
       <div class="btn-group">
         <a class="btn btn-primary" target="_blank" href="http://www.memopol.org/">
