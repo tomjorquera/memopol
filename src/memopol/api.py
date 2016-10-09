@@ -21,9 +21,14 @@ from representatives_recommendations.api import (
     RecommendationViewSet
 )
 
+from memopol_themes.api import (
+    ThemeViewSet
+)
+
 from memopol_scores.api import (
     DossierScoreViewSet,
     RepresentativeScoreViewSet,
+    ThemeScoreViewSet,
     VoteScoreViewSet
 )
 
@@ -54,5 +59,7 @@ router.register('recommendations', RecommendationViewSet, 'api-recommendation')
 router.register('representatives', RepresentativeViewSet,
                 'api-representative')
 router.register('scores', RepresentativeScoreViewSet, 'api-score')
+router.register('theme_scores', ThemeScoreViewSet, 'api-themescore')
+router.register('themes', ThemeViewSet, 'api-themes')
 router.register('vote_scores', VoteScoreViewSet, 'api-votescore')
 router.register('votes', RQLVoteViewSet, 'api-vote')

@@ -153,6 +153,20 @@ class MandateDetailSerializer(MandateSerializer):
         )
 
 
+class RepresentativeSimpleSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Representative
+        fields = (
+            'id',
+            'url',
+            'first_name',
+            'last_name'
+        )
+        extra_kwargs = {
+            'url': {'view_name': 'api-representative-detail'},
+        }
+
+
 class RepresentativeSerializer(serializers.HyperlinkedModelSerializer):
     contacts = ContactField()
 

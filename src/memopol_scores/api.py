@@ -10,12 +10,14 @@ from representatives.api import DefaultWebPagination
 from .models import (
     DossierScore,
     RepresentativeScore,
+    ThemeScore,
     VoteScore
 )
 
 from .serializers import (
     DossierScoreSerializer,
     RepresentativeScoreSerializer,
+    ThemeScoreSerializer,
     VoteScoreSerializer
 )
 
@@ -61,6 +63,28 @@ class RepresentativeScoreViewSet(viewsets.ReadOnlyModelViewSet):
     ordering_fields = ('representative', 'score')
     pagination_class = DefaultWebPagination
     serializer_class = RepresentativeScoreSerializer
+
+
+class ThemeScoreViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint to view theme scores
+    """
+    queryset = ThemeScore.objects.select_related('representative', 'theme')
+    filter_backends = (
+        filters.DjangoFilterBackend,
+        filters.SearchFilter,
+        filters.OrderingFilter,
+        RQLFilterBackend
+    )
+    filter_fields = {
+        'representative': ['exact'],
+        'theme': ['exact'],
+        'score': ['exact', 'gte', 'lte']
+    }
+    search_fields = ('representative', 'theme', 'score')
+    ordering_fields = ('representative', 'theme', 'score')
+    pagination_class = DefaultWebPagination
+    serializer_class = ThemeScoreSerializer
 
 
 class VoteScoreViewSet(viewsets.ReadOnlyModelViewSet):

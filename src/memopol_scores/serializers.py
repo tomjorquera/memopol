@@ -1,8 +1,12 @@
 from rest_framework import serializers
 
+from memopol_themes.serializers import ThemeSerializer
+from representatives.serializers import RepresentativeSimpleSerializer
+
 from .models import (
     DossierScore,
     RepresentativeScore,
+    ThemeScore,
     VoteScore
 )
 
@@ -26,6 +30,15 @@ class RepresentativeScoreSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {
             'representative': {'view_name': 'api-representative-detail'},
         }
+
+
+class ThemeScoreSerializer(serializers.HyperlinkedModelSerializer):
+    theme = ThemeSerializer()
+    representative = RepresentativeSimpleSerializer()
+
+    class Meta:
+        model = ThemeScore
+        fields = ('representative', 'theme', 'score')
 
 
 class VoteScoreSerializer(serializers.HyperlinkedModelSerializer):
