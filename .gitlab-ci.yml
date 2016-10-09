@@ -1,6 +1,5 @@
 job test:
         script:
-                - exit 0
                 - tox
         stage: test
         tags: [memopol]
@@ -18,5 +17,6 @@ job install:
                 - sudo service uwsgi restart memopol
         stage: deploy
         tags: [memopol]
+        environment: production
         only:
                 - master
