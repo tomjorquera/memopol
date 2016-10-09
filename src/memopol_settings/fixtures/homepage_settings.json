@@ -1,0 +1,26 @@
+[
+{
+  "model": "memopol_settings.setting",
+  "pk": "HOMEPAGE_LATEST_VOTES",
+  "fields": {
+    "value": "5",
+    "comment": "Number of 'latest votes' to show on the homepage."
+  }
+},
+{
+  "model": "memopol_settings.setting",
+  "pk": "HOMEPAGE_INTRO_TEXT",
+  "fields": {
+    "value": "** Use comment field for this setting **",
+    "comment": "Political Memory is a tool to help citizens reach their representatives and track their voting records."
+  }
+},
+{
+  "model": "memopol_settings.setting",
+  "pk": "HOMEPAGE_INSTANCE_TEXT",
+  "fields": {
+    "value": "** Use comment field for this setting **",
+    "comment": "This instance of Memopol is run by La Quadrature du Net and tracks issues related to fundamental freedoms online."
+  }
+}
+]

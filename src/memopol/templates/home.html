@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load fontawesome %}
 {% load staticfiles %}
+{% load memopol_tags %}
 
 {% block content %}
   <div class="row">
@@ -13,18 +14,55 @@
 
   <div class="row">
     <div class="col-md-12">
+      <h2>{% trans "What is Memopol ?" %}</h2>
       <p>
-        {% include "text/short_description.html" %}
+        {{ HOMEPAGE_INTRO_TEXT }}
       </p>
+      <h2>{% trans "What about this instance ?" %}</h2>
       <p>
-        {% include "text/license.html" %}
+        {{ HOMEPAGE_INSTANCE_TEXT }}
       </p>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
-      placeholder
+      <h2>{% trans "Latest votes" %}</h2>
+
+      <table class="table table-responsive table-condensed">
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>{{ "for"|position_icon }}</th>
+          <th>{{ "against"|position_icon }}</th>
+          <th>{{ "abstain"|position_icon }}</th>
+        </tr>
+        {% for proposal in latest_votes %}
+          <tr class="proposal-title {% if forloop.counter0|divisibleby:2 %}active{% endif %}">
+            <td colspan="6">
+              <a href="{% url 'dossier-detail' proposal.dossier.pk %}">
+                {{ proposal.title }}
+              </a>
+            </td>
+          </tr>
+          <tr class="proposal-details {% if forloop.counter0|divisibleby:2 %}active{% endif %}">
+            <td>
+              {% for chamber in proposal.dossier.chambers %}
+                {{ chamber | chamber_icon }}
+              {% endfor %}
+            </td>
+            <td>
+              {% include "blocks/_themetags.html" with themes=proposal|proposal_themes %}
+            </td>
+            <td>{{ proposal.status|proposal_status_label:proposal.recommendation }}</td>
+
+            <td>{{ proposal.total_for }}</td>
+            <td>{{ proposal.total_against }}</td>
+            <td>{{ proposal.total_abstain }}</td>
+          </tr>
+        {% endfor %}
+      </table>
     </div>
 
     <div class="col-md-4">
@@ -86,6 +124,16 @@
           {% trans "Report an issue" %}
         </a>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <br><br>
+        {% include "text/license.html" %}
+        <br><br>
+      </p>
     </div>
   </div>
 

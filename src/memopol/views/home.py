@@ -8,7 +8,9 @@ from django.views import generic
 
 from representatives.models import Representative
 from representatives_positions.views import PositionFormMixin
+from representatives_votes.models import Proposal
 
+from memopol_settings.models import Setting
 from memopol_themes.models import Theme
 
 from .representative_mixin import RepresentativeViewMixin
@@ -44,5 +46,12 @@ class HomeView(PositionFormMixin, RepresentativeViewMixin,
                 nb_proposals=Count('proposals', distinct=True),
                 nb_positions=Count('positions', distinct=True)
             )
+
+        # Last votes
+
+        num = int(Setting.objects.get(pk='HOMEPAGE_LATEST_VOTES').value)
+        c['latest_votes'] = Proposal.objects \
+            .filter(recommendation__isnull=False) \
+            .order_by('-datetime')[0:num]
 
         return c

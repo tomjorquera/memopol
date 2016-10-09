@@ -130,6 +130,7 @@ TEMPLATE_LOADERS = (
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.template.context_processors.request',
     'memopol.context_processors.search_form_options',
+    'memopol.context_processors.intro_text'
 )
 
 #

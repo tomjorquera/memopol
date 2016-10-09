@@ -118,3 +118,8 @@ def score_badge(score, tooltip=None):
 @register.filter
 def cast_str(val):
     return str(val)
+
+
+@register.filter
+def proposal_themes(proposal):
+    return set(proposal.themes.all()) | set(proposal.dossier.themes.all())
