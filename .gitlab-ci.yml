@@ -1,3 +1,8 @@
+before_script:
+        - export PIP_CACHE_DIR="pip-cache"
+cache:
+        paths:
+                - pip-cache
 job test:
         script:
                 - tox
