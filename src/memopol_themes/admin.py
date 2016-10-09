@@ -18,10 +18,10 @@ class LinkInline(admin.StackedInline):
 
 
 class ThemeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    list_display = ('name', 'description', 'featured')
     list_editable = ('name', 'description')
     list_filter = ('name',)
-    fields = ('name', 'description')
+    fields = ('name', 'description', 'featured')
     inlines = [
         LinkInline
     ]

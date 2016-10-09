@@ -20,13 +20,21 @@
         {% include "text/license.html" %}
       </p>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-md-4">
       placeholder
     </div>
 
     <div class="col-md-4">
-      placeholder
+      <h2>{% trans "Featured themes" %}</h2>
+
+      {% for theme in featured_themes %}
+        {% include "memopol_themes/_theme_card.html" with theme=theme cols=12 %}
+      {% empty %}
+        {% trans "No currently featured theme :'(" %}
+      {% endfor %}
     </div>
 
     <div class="col-md-4 todays-mep">
@@ -35,6 +43,9 @@
       {% include "representatives/_representative_card.html" with representative=todays_mep cols=12 %}
     </div>
 
+  </div>
+
+  <div class="row">
     <div class="col-md-4">
       <h3>{% trans "More information" %}</h3>
       <div class="btn-group">

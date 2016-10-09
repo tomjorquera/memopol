@@ -12,6 +12,7 @@ class Theme(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = AutoSlugField(populate_from='name')
     description = models.TextField()
+    featured = models.BooleanField(default=False)
 
     dossiers = models.ManyToManyField(Dossier, related_name='themes')
     proposals = models.ManyToManyField(Proposal, related_name='themes')

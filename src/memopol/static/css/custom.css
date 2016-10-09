@@ -92,7 +92,6 @@ a.custom-invisible, a.custom-invisible:hover, a.custom-invisible:focus {
 }
 
 
-
 /***************************************************************
 					Forms
 ***************************************************************/
@@ -371,6 +370,44 @@ iframe {
     right: 0.5em;
 }
 
+
+/***************************************************************
+                    Themes
+***************************************************************/
+
+.theme-card .description {
+    margin: 0 1em;
+    line-height: 1.2em;
+}
+
+.theme-card .info-container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1em;
+}
+
+.theme-card .badge-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.theme-card .badge-container .label {
+    margin: .25em 0;
+}
+
+.theme-card .chart-container {
+    flex-grow: 1;
+    height: 125px;
+    margin-left: .5em;
+
+    border: 1px solid #ddd;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /***************************************************************
                     Dossiers
 ***************************************************************/
@@ -443,6 +480,7 @@ iframe {
 .icon-badge + .icon-badge {
     margin-left: .5em;
 }
+
 
 .vote_positive {
     color: green;
