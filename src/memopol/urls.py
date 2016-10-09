@@ -9,6 +9,9 @@ from views.autocomplete import (
     ProposalAutocomplete,
     RepresentativeAutocomplete,
 )
+
+from views.charts import ThemeScoresJSONView, ChamberScoresJSONView
+
 from views.dossier_detail_base import DossierDetailBase
 from views.dossier_detail_recommendations import DossierDetailRecommendations
 from views.dossier_detail_proposals import DossierDetailProposals
@@ -182,6 +185,20 @@ urlpatterns = [
         r'^groups/(?P<group_kind>[-\w]+)/(?P<group>[^/]+)/$',
         RedirectGroupRepresentativeList.as_view(),
         name='redirect-group-representative-list'
+    ),
+
+    # Chart data URLs
+
+    url(
+        r'^charts/data/theme-scores/(?P<theme>\d+)/$',
+        ThemeScoresJSONView.as_view(),
+        name='charts-data-theme-scores'
+    ),
+
+    url(
+        r'^charts/data/chamber-scores/(?P<chamber>\d+)/$',
+        ChamberScoresJSONView.as_view(),
+        name='charts-data-chamber-scores'
     ),
 
     # Testing URLs
