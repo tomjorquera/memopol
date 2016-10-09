@@ -45,8 +45,7 @@ class HomeView(PositionFormMixin, RepresentativeViewMixin,
                 nb_links=Count('links', distinct=True),
                 nb_dossiers=Count('dossiers', distinct=True),
                 nb_proposals=Count('proposals', distinct=True),
-                nb_positions=Count('positions', distinct=True)
-            )
+                nb_positions=Count('positions', distinct=True))
 
         # Last votes
 
