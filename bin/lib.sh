@@ -42,5 +42,5 @@ function refresh_scores() {
     fi
 
     export DJANGO_SETTINGS_MODULE=memopol.settings
-    ./manage.py refresh_scores
+    memopol refresh_scores
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-source ${OPENSHIFT_REPO_DIR}bin/lib.sh
+source bin/lib.sh
 
 parltrack_download_pipe ep_votes.json.xz parltrack_import_votes
 
