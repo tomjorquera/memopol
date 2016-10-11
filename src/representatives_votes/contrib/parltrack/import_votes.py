@@ -64,7 +64,8 @@ class Command(object):
         dossier_pk = self.get_dossier(vote_data['epref'])
 
         if not dossier_pk:
-            logger.debug('Cannot find dossier with remote id %s', epref)
+            logger.debug('Cannot find dossier with remote id %s',
+                         vote_data['epref'])
             return
 
         if 'committee' in vote_data:
@@ -183,9 +184,6 @@ class Command(object):
     @transaction.atomic
     def parse_proposal_data(self, proposal_data, dossier_pk):
         """Get or Create a proposal model from raw data"""
-        proposal_display = '{} ({})'.format(proposal_data['title'].encode(
-            'utf-8'), proposal_data.get('report', '').encode('utf-8'))
-
         if 'issue_type' not in proposal_data.keys():
             logger.debug('This proposal data without issue_type: %s',
                          proposal_data['epref'])
