@@ -9,12 +9,13 @@ KIND_CHOICES = (
     ('social', 'Social network'),
     ('press', 'Press interview'),
     ('parliament', 'Parliament debate'),
+    ('amendment', 'Amendment'),
 )
 
 
 class Position(models.Model):
-    representative = models.ForeignKey(Representative,
-                                       related_name='positions')
+    representatives = models.ManyToManyField(Representative,
+                                             related_name='positions')
     datetime = models.DateField()
     kind = models.CharField(max_length=64, choices=KIND_CHOICES,
                             default='other')

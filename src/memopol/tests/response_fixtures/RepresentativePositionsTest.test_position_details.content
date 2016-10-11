@@ -4,10 +4,9 @@
                       <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
                       
                       <h4 class="modal-title">
+                        Public position by
                         
-                          
-                            Public position by Olivier Dussopt
-                          
+                          Olivier Dussopt
                         
                       </h4>
                     </div>
@@ -69,10 +68,9 @@ Olivier Dussopt n'a pas fait de réponse aux commentaires sur son blog.</p>
                       <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
                       
                       <h4 class="modal-title">
+                        Public position by
                         
-                          
-                            Public position by Olivier Dussopt
-                          
+                          Olivier Dussopt
                         
                       </h4>
                     </div>

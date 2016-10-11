@@ -69,7 +69,6 @@ class ComputeTest(test.TestCase):
 
     def create_position(self, when, score):
         pos = Position(
-            representative=self.representative,
             datetime=when,
             kind='other',
             title='TEST',
@@ -78,6 +77,8 @@ class ComputeTest(test.TestCase):
             score=score,
             published=True
         )
+        pos.save()
+        pos.representatives.add(self.representative)
         pos.save()
         return pos
 

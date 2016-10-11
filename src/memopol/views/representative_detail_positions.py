@@ -24,6 +24,7 @@ class RepresentativeDetailPositions(RepresentativeDetailBase):
                 queryset=positions_qs.order_by('-datetime', 'pk')
             ),
             'positions__themes',
+            'positions__representatives',
             'positions__position_score'
         )
 

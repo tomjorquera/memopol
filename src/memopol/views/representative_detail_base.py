@@ -67,6 +67,6 @@ class RepresentativeDetailBase(RepresentativeViewMixin, PositionFormMixin,
         c = super(RepresentativeDetailBase, self).get_context_data(**kwargs)
 
         self.add_representative_country_and_main_mandate(c['object'])
-        c['position_form'].fields['representative'].initial = c['object'].pk
+        c['position_form'].fields['representatives'].initial = [c['object'].pk]
 
         return c

@@ -15,11 +15,10 @@ class BaseTest(ResponseDiffTestMixin, test.TestCase):
         - 1 for parties
         - 1 for committees
         - 1 for delegations
-    - 2 for the position form
-        - 1 for representatives
+    - 1 for the position form
         - 1 for themes
     """
-    left_pane_queries = 8
+    left_pane_queries = 7
 
     def setUp(self):
         RepresentativeScore.refresh()
@@ -47,8 +46,7 @@ class RepresentativeBaseTest(BaseTest):
     - 1 for chamber websites
     - 1 for other websites
     - 1 for addresses
-    - 1 for address country
-    - 1 for phone numbers related to addresses
+    - 2 for phone numbers related to addresses
     - 1 for other phone numbers
     - 2 for themes and theme scores
     """
