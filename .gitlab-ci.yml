@@ -11,6 +11,8 @@ job test:
 job install:
         script:
                 - source /srv/memopol/memopol_env/bin/activate
+                - cd /srv/memopol/memopol_env/src/memopol/docs
+                - make html
                 - cd /srv/memopol/memopol_env/src/memopol
                 - git fetch origin
                 - git reset --hard origin/master
