@@ -65,7 +65,7 @@ class Command(object):
 
         if 'committee' in vote_data:
             return self.parse_committee_vote_data(
-                vote_data=vote_data,
+                proposal_data=vote_data,
                 dossier_pk=dossier_pk
             )
         else:
@@ -93,7 +93,8 @@ class Command(object):
             u'Looking for votes in proposal {}'.format(proposal.title))
 
         for position in ('For', 'Abstain', 'Against'):
-            for group_vote_data in data.get(position, {}).get('groups', {}):
+            for group_vote_data in data.get(position_map[position],
+                                            {}).get('groups', {}):
                 for vote_data in group_vote_data['votes']:
                     if not isinstance(vote_data, dict):
                         logger.error('Skipping vote data %s for proposal %s',
@@ -123,12 +124,12 @@ class Command(object):
                     if changed:
                         vote.save()
                         logger.debug('Save vote %s for MEP %s on %s #%s to %s',
-                                     vote.pk, representative_pk, data['title'],
-                                     proposal.pk, position)
+                                     vote.pk, representative_pk,
+                                     proposal.title, proposal.pk, position)
 
     @transaction.atomic
     def parse_committee_vote_data(self, proposal_data, dossier_pk):
-        title = u'{} vote on {}' % (proposal_data['committee'],
+        title = u'%s vote on %s' % (proposal_data['committee'],
                                     proposal_data['doc'])
         changed = False
 
@@ -147,7 +148,7 @@ class Command(object):
         data_map = dict(
             datetime=_parse_date(proposal_data['ts']),
             reference=ref,
-            kind='Committee vote'
+            kind='committee-vote'
         )
 
         position_map = {
@@ -170,7 +171,7 @@ class Command(object):
         if self.should_skip(proposal_data):
             logger.debug(
                 u'Skipping votes for dossier %s', proposal_data.get(
-                    'epref', proposal_data['title']))
+                    'epref', title))
             return
 
         self.parse_proposal_votes(proposal, proposal_data, position_map)

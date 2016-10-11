@@ -1,6 +1,22 @@
 [
 {
     "fields": {
+        "total_for": 1,
+        "description": "",
+        "reference": "TEST-COM-VOTE",
+        "title": "LIBE vote on Test Committee Vote",
+        "dossier": [
+            "2012/2002(INI)"
+        ],
+        "kind": "committee-vote",
+        "datetime": "2012-10-23T16:31:10Z",
+        "total_against": 1,
+        "total_abstain": 0
+    },
+    "model": "representatives_votes.proposal"
+},
+{
+    "fields": {
         "representative_name": "",
         "position": "abstain",
         "proposal": [
@@ -163,5 +179,35 @@
     },
     "model": "representatives_votes.vote",
     "pk": 11
+},
+{
+    "fields": {
+        "representative_name": "",
+        "position": "for",
+        "proposal": [
+            "LIBE vote on Test Committee Vote",
+            "2012/2002(INI)"
+        ],
+        "representative": [
+            "hubert-pirker-1948-10-03"
+        ]
+    },
+    "model": "representatives_votes.vote",
+    "pk": 12
+},
+{
+    "fields": {
+        "representative_name": "",
+        "position": "against",
+        "proposal": [
+            "LIBE vote on Test Committee Vote",
+            "2012/2002(INI)"
+        ],
+        "representative": [
+            "olle-ludvigsson-1948-10-28"
+        ]
+    },
+    "model": "representatives_votes.vote",
+    "pk": 13
 }
 ]
