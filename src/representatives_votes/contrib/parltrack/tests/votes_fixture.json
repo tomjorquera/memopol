@@ -281,5 +281,45 @@
         "ts": "2015-10-28T13:01:09",
         "url": "http://www.europarl.europa.eu/RegData/seance_pleniere/proces_verbal/2015/10-28/votes_nominaux/xml/P8_PV(2015)10-28(RCV)_XC.xml",
         "voteid": "59151"
+    },
+    {
+        "url": "http://www.europarl.europa.eu/sides/getDoc.do?type=REPORT&mode=XML&reference=TEST-COM-VOTE&language=EN",
+        "doc": "Test Committee Vote",
+        "+": {
+            "groups": [
+                {
+                    "group": "PPE",
+                    "votes": [
+                        {
+                            "ep_id": 2307,
+                            "name": "Pirker"
+                        }
+                    ]
+                }
+            ],
+            "total": "1"
+        },
+        "ep_ref": "2012/2002(INI)",
+        "-": {
+            "groups": [
+                {
+                    "group": "PPE",
+                    "votes": [
+                        {
+                            "ep_id": 96673,
+                            "name": "Ludvigsson"
+                        }
+                    ]
+                }
+            ],
+            "total": "1"
+        },
+        "ts": "2012-10-23T18:31:10",
+        "0": {
+            "total": 0,
+            "groups": []
+        },
+        "committee": "LIBE",
+        "_id": "56617c15edd52ed712fc7901"
     }
 ]
