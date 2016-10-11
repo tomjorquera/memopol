@@ -3,9 +3,10 @@
 from core.views import GridListMixin, PaginationMixin, CSVDownloadMixin, \
     ActiveLegislatureMixin, SortMixin
 
+from django.db import models
 from django.views import generic
 
-from representatives.models import Representative
+from representatives.models import Representative, Email
 
 from ..filters import RepresentativeFilter
 from .representative_mixin import RepresentativeViewMixin
@@ -72,7 +73,12 @@ class RepresentativeList(CSVDownloadMixin, GridListMixin, PaginationMixin,
 
     def get_csv_results(self, context, **kwargs):
         qs = self.get_queryset()
-        qs = qs.prefetch_related('email_set')
+        qs = qs.prefetch_related(
+            models.Prefetch(
+                'email_set',
+                queryset=Email.objects.order_by('email')
+            )
+        )
         return [self.add_representative_country_and_main_mandate(r)
                 for r in qs]
 
