@@ -51,16 +51,20 @@ class Command(object):
         """
         Parse data from parltrack votes db dumps (1 proposal)
         """
-        if 'epref' not in vote_data.keys():
+        keys = vote_data.keys()
+        if 'ep_ref' in keys:
+            vote_data['epref'] = vote_data['ep_ref']
+        elif 'epref' not in keys:
             logger.debug('Could not import data without epref %s',
-                vote_data['title'])
+                vote_data.get('title',
+                              vote_data.get('doc',
+                                            vote_data.get('url', '?'))))
             return
 
         dossier_pk = self.get_dossier(vote_data['epref'])
 
         if not dossier_pk:
-            logger.debug('Cannot find dossier with remote id %s',
-                         vote_data['epref'])
+            logger.debug('Cannot find dossier with remote id %s', epref)
             return
 
         if 'committee' in vote_data:
