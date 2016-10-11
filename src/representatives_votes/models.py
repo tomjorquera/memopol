@@ -38,7 +38,7 @@ class Dossier(TimeStampedModel):
 
 class Document(TimeStampedModel):
     dossier = models.ForeignKey(Dossier, related_name='documents')
-    chamber = models.ForeignKey(Chamber)
+    chamber = models.ForeignKey(Chamber, related_name='documents')
     title = models.CharField(max_length=1000)
     kind = models.CharField(max_length=255, blank=True, default='')
     link = models.URLField(max_length=1000)

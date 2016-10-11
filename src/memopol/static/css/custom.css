@@ -375,28 +375,36 @@ iframe {
                     Themes
 ***************************************************************/
 
-.theme-card .description {
+.theme-card .description,
+.chamber-card .description {
     margin: 0 1em;
     line-height: 1.2em;
 }
 
-.theme-card .info-container {
+.theme-card .info-container,
+.chamber-card .info-container,
+.chamber-card .title-container {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em;
 }
 
-.theme-card .badge-container {
+.theme-card .badge-container,
+.chamber-card .badge-container {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
 }
 
-.theme-card .badge-container .label {
+.theme-card .badge-container .label,
+.chamber-card .badge-container .label {
     margin: .25em 0;
 }
 
-.theme-card .chart-container {
+.theme-card .chart-container,
+.chamber-card .chart-container {
     flex-grow: 1;
     height: 125px;
     margin-left: .5em;
@@ -406,6 +414,14 @@ iframe {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.chamber-card .chart-container {
+    margin: 1em;
+}
+
+.chamber-card h4 {
+    margin: 0;
 }
 
 /***************************************************************
