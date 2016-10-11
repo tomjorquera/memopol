@@ -6,7 +6,7 @@ import random
 from django.db.models import Q, Count
 from django.views import generic
 
-from representatives.models import Representative
+from representatives.models import Chamber, Representative
 from representatives_positions.views import PositionFormMixin
 from representatives_votes.models import Proposal
 
@@ -56,5 +56,13 @@ class HomeView(PositionFormMixin, RepresentativeViewMixin,
             .prefetch_related('themes', 'dossier__themes',
                               'dossier__documents__chamber') \
             .order_by('-datetime')[0:num]
+
+        # Chambers
+
+        c['chambers'] = Chamber.objects.all() \
+            .annotate(
+                nb_dossiers=Count('documents__dossier', distinct=True),
+                nb_proposals=Count('documents__dossier__proposals',
+                                   distinct=True))
 
         return c

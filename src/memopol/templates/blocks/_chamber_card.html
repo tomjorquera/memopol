@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load fontawesome %}
+{% load memopol_tags %}
+
+<div class="col-xs-12 col-md-{{ cols|default:4 }} chamber-card">
+  <div class="thumbnail">
+    <div class="row">
+
+      <div class="col-xs-12">
+        <div class="title-container">
+          <h4 class="text-center">
+            {{ chamber.name }}
+          </h4>
+
+          {{ chamber|chamber_icon }}
+        </div>
+
+        <div class="description">
+          {% blocktrans with dossiers=chamber.nb_dossiers proposals=chamber.nb_proposals %}
+            <b>{{ dossiers }} dossiers</b> and <b>{{ proposals }} proposals</b>
+          {% endblocktrans %}
+        </div>
+
+        <div class="chart-container">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

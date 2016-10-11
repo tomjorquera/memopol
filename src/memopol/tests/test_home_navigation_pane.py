@@ -9,19 +9,23 @@ class NavigationPaneTest(BaseTest):
         self.client.get(self.url)
 
         """
-        Today mep
-        - 1 for count reps with non null score
-        - 1 for random mep
-        - 1 for prefetch main mandate
-        Latest votes
-        - 1 for latest votes count setting
-        - 1 for latest votes (proposal)
-        - 1 for prefetching latest votes themes
-        - 1 for prefetching latest votes dossier themes
-        - 1 for prefetching latest votes dossier documents
-        - 1 for prefetching latest votes dossier documents chambers
-        Featured themes
-        - 1 for featured themes
+        - 3 for Today mep
+            - 1 for count reps with non null score
+            - 1 for random mep
+            - 1 for prefetch main mandate
+        - 6 for Latest votes
+            - 1 for latest votes count setting
+            - 1 for latest votes (proposal)
+            - 1 for prefetching latest votes themes
+            - 1 for prefetching latest votes dossier themes
+            - 1 for prefetching latest votes dossier documents
+            - 1 for prefetching latest votes dossier documents chambers
+        - 1 for Featured themes
+            - 1 for featured themes
+        - 0 for Chambers
+            - 1 for chambers and dossier/proposal counts
+              => note: django optimizes out the chamber query for left pane
+                 forms so this one actually does not add 1 to query count
         """
         home_queries = 10
 

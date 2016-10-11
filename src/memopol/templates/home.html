@@ -84,6 +84,16 @@
   </div>
 
   <div class="row">
+    <div class="col-md-12">
+      <h2>{% trans "Chambers in this instance" %}</h2>
+    </div>
+
+    {% for chamber in chambers %}
+      {% include "blocks/_chamber_card.html" with chamber=chamber %}
+    {% endfor %}
+  </div>
+
+  <div class="row">
     <div class="col-md-4">
       <h3>{% trans "More information" %}</h3>
       <div class="btn-group">
