@@ -15,10 +15,8 @@ class BaseTest(ResponseDiffTestMixin, test.TestCase):
         - 1 for parties
         - 1 for committees
         - 1 for delegations
-    - 1 for the position form
-        - 1 for themes
     """
-    left_pane_queries = 7
+    left_pane_queries = 6
 
     def setUp(self):
         RepresentativeScore.refresh()
@@ -72,8 +70,9 @@ class ThemeBaseTest(BaseTest):
     """
     Common queries plus:
     - 1 for the theme
+    - 1 for DAL to fetch its initial value in the position form
     """
-    queries = BaseTest.left_pane_queries + 1
+    queries = BaseTest.left_pane_queries + 2
 
     @property
     def url(self):
