@@ -41681,7 +41681,7 @@
         "text": "D\u00e9claration \u00e9crite 12/2010 (ACTA/ACAC)\nA sign\u00e9 la d\u00e9claration 12/2010 sur l\u2019absence d\u2019un processus transparent et la pr\u00e9sence d\u2019un contenu potentiellement controvers\u00e9 concernant l\u2019accord commercial anti-contrefa\u00e7on (ACAC).",
         "published": true,
         "link": "http://www.laquadrature.net/wiki/Written_Declaration_12/2010_signatories_list",
-        "representatives": [ 9 ],
+        "representatives": [ 9, 10, 11, 4899 ],
         "datetime": "2010-07-21"
     },
     "model": "representatives_positions.position",
