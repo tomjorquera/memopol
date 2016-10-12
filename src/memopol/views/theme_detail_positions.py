@@ -8,7 +8,7 @@ class ThemeDetailPositions(ThemeDetailBase):
 
     def get_queryset(self):
         qs = super(ThemeDetailPositions, self).get_queryset()
-        qs = qs.prefetch_related('positions__representative',
+        qs = qs.prefetch_related('positions__representatives',
                                  'positions__position_score')
         return qs
 

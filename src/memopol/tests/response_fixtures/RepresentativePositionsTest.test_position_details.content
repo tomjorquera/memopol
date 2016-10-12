@@ -4,10 +4,72 @@
                       <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
                       
                       <h4 class="modal-title">
+                        Public position by
                         
-                          
-                            Public position by Olivier Dussopt
-                          
+                          Albert DESS, 
+                        
+                          Olivier Dussopt, 
+                        
+                          Annie SCHREIJER-PIERIK, 
+                        
+                          Kerstin WESTPHAL
+                        
+                      </h4>
+                    </div>
+
+                    <div class="modal-body">
+                      <div class="row">
+                        <dl class="dl-horizontal col-sm-6 text-left">
+                          <dt>Date</dt>
+                          <dd>
+                            July 21, 2010
+                          </dd>
+
+                          <dt>Kind</dt>
+                          <dd>
+                            other
+                          </dd>
+                        </dl>
+                        <dl class="dl-horizontal col-sm-6 text-left">
+                          <dt>Themes</dt>
+                          <dd>
+                            
+                          </dd>
+
+                          <dt>Score</dt>
+                          <dd>
+                            <span class="badge badge-primary">0</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 text-justify">
+                          <blockquote class="position-text">
+                            <p>Déclaration écrite 12/2010 (ACTA/ACAC)
+A signé la déclaration 12/2010 sur l’absence d’un processus transparent et la présence d’un contenu potentiellement controversé concernant l’accord commercial anti-contrefaçon (ACAC).</p>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      
+                        <a class="btn btn-primary" href="http://www.laquadrature.net/wiki/Written_Declaration_12/2010_signatories_list" target="_blank">Check the source »</a>
+                      
+
+                      <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                    </div>
+                  </div>
+                </div>
+---
+<div class="modal-dialog modal-lg position-details" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                      
+                      <h4 class="modal-title">
+                        Public position by
+                        
+                          Olivier Dussopt
                         
                       </h4>
                     </div>
@@ -69,10 +131,9 @@ Olivier Dussopt n'a pas fait de réponse aux commentaires sur son blog.</p>
                       <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
                       
                       <h4 class="modal-title">
+                        Public position by
                         
-                          
-                            Public position by Olivier Dussopt
-                          
+                          Olivier Dussopt
                         
                       </h4>
                     </div>

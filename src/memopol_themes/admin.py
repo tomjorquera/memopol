@@ -1,12 +1,10 @@
-from dal import autocomplete
-
 from django import forms
 from django.contrib import admin
 
 from representatives_votes.admin import DossierAdmin, ProposalAdmin
 from representatives_votes.models import Dossier, Proposal
 
-from representatives_positions.admin import PositionAdmin
+from representatives_positions.admin import PositionAdmin, PositionAdminForm
 from representatives_positions.models import Position
 
 from .models import Theme, ThemeLink
@@ -73,16 +71,11 @@ class ThemedProposalAdminForm(ThemedAdminForm):
                   'themes')
 
 
-class ThemedPositionAdminForm(ThemedAdminForm):
+class ThemedPositionAdminForm(ThemedAdminForm, PositionAdminForm):
     class Meta:
         model = Position
-        fields = ('representative', 'datetime', 'kind', 'title', 'score',
+        fields = ('representatives', 'datetime', 'kind', 'title', 'score',
                   'text', 'link', 'published', 'themes')
-        widgets = {
-            'representative': autocomplete.ModelSelect2(
-                url='representative-autocomplete',
-            )
-        }
 
 
 class ThemedDossierAdmin(DossierAdmin):

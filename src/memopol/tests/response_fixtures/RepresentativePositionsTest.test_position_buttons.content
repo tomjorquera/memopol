@@ -1,5 +1,24 @@
-<button aria-controls="position-modal-566" aria-expanded="false" class="btn btn-default position-button" data-target="#position-modal-566" data-toggle="modal" id="position-button-566" type="button">
+<button aria-controls="position-modal-36" aria-expanded="false" class="btn btn-default position-button" data-target="#position-modal-36" data-toggle="modal" id="position-button-36" type="button">
+                <h5>
+                  
+                    
+                      4 representatives
+                    
+                  
+                </h5>
+
+                <div class="text-center">July 21, 2010</div>
                 
+
+                <span class="badge badge-primary">0</span>
+              </button>
+---
+<button aria-controls="position-modal-566" aria-expanded="false" class="btn btn-default position-button" data-target="#position-modal-566" data-toggle="modal" id="position-button-566" type="button">
+                <h5>
+                  
+                    Olivier Dussopt
+                  
+                </h5>
 
                 <div class="text-center">Oct. 3, 2009</div>
                 
@@ -8,7 +27,11 @@
               </button>
 ---
 <button aria-controls="position-modal-567" aria-expanded="false" class="btn btn-default position-button" data-target="#position-modal-567" data-toggle="modal" id="position-button-567" type="button">
-                
+                <h5>
+                  
+                    Olivier Dussopt
+                  
+                </h5>
 
                 <div class="text-center">June 17, 2008</div>
                 

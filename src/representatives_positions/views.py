@@ -16,7 +16,7 @@ class PositionFormMixin(generic.View):
     position_created = False
 
     def post(self, request, *args, **kwargs):
-        if 'position-representative' in request.POST:
+        if 'position-representatives' in request.POST:
             self.position_form = PositionForm(request.POST, prefix='position')
             if self.position_form.is_valid():
                 self.position_form.save()

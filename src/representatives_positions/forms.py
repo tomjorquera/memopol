@@ -1,6 +1,7 @@
 from django import forms
 
 from datetimewidget.widgets import DateWidget
+from dal.autocomplete import ModelSelect2Multiple
 
 from memopol_themes.models import Theme
 from .models import Position
@@ -15,13 +16,16 @@ class PositionForm(forms.ModelForm):
 
     class Meta:
         model = Position
-        fields = ['representative', 'link', 'datetime', 'themes', 'title',
+        fields = ['representatives', 'link', 'datetime', 'themes', 'title',
                   'kind', 'text']
 
         widgets = {
             'datetime': DateWidget(
                 usel10n=True,
                 bootstrap_version=3
+            ),
+            'representatives': ModelSelect2Multiple(
+                url='representative-autocomplete',
             )
         }
 

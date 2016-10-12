@@ -10,7 +10,7 @@ class PositionFormTest(BaseTest):
     url = '/'
     create_url = RepresentativeBaseTest.base_url % 'none'
     position_fixture = {
-        'position-representative': 1,
+        'position-representatives': 1,
         'position-datetime': '2016-09-01',
         'position-link': 'http://example.com/test',
         'position-kind': 'other',
@@ -19,12 +19,6 @@ class PositionFormTest(BaseTest):
         'position-text': 'position test text',
         'position-themes': '1'
     }
-
-    def test_select_representative(self):
-        self.selector_test(
-            '#add-position-form #id_position-representative option[selected]',
-            RepresentativeBaseTest.base_url % 'none'
-        )
 
     def test_select_theme(self):
         self.selector_test(
@@ -39,15 +33,15 @@ class PositionFormTest(BaseTest):
         position = Position.objects.get(text='position test text')
 
         assert position.datetime == datetime.date(2016, 9, 1)
-        assert position.representative.pk == \
-            self.position_fixture['position-representative']
+        assert position.representatives.all()[0].pk == \
+            self.position_fixture['position-representatives']
         assert position.link == self.position_fixture['position-link']
         assert ''.join(['%s' % t.pk for t in position.themes.all()]) == '1'
         assert position.published is False
 
     def test_create_position_without_representative(self):
         fixture = copy.copy(self.position_fixture)
-        fixture.pop('position-representative')
+        fixture.pop('position-representatives')
 
         response = self.client.post(self.create_url, fixture)
         self.assertResponseDiffEmpty(response,
