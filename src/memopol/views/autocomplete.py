@@ -6,6 +6,7 @@ from django.db.models import Q
 
 from representatives.models import Representative
 from representatives_votes.models import Proposal
+from memopol_themes.models import Theme
 
 
 class RepresentativeAutocomplete(autocomplete.Select2QuerySetView):
@@ -30,5 +31,15 @@ class ProposalAutocomplete(autocomplete.Select2QuerySetView):
                 Q(title__icontains=self.q) |
                 Q(reference__icontains=self.q)
             )
+
+        return qs
+
+
+class ThemeAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = Theme.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__icontains=self.q)
 
         return qs
