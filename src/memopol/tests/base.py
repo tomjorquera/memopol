@@ -49,8 +49,9 @@ class RepresentativeBaseTest(BaseTest):
     - 2 for phone numbers related to addresses
     - 1 for other phone numbers
     - 2 for themes and theme scores
+    - 1 for DAL to fetch its initial value in the position form
     """
-    queries = BaseTest.left_pane_queries + 14
+    queries = BaseTest.left_pane_queries + 15
 
     @property
     def url(self):
