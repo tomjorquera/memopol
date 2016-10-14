@@ -9,14 +9,8 @@ class BaseTest(ResponseDiffTestMixin, test.TestCase):
     """
     Common queries
     - 1 for settings
-    - 5 for search forms
-        - 1 for chambers
-        - 1 for countries
-        - 1 for parties
-        - 1 for committees
-        - 1 for delegations
     """
-    left_pane_queries = 6
+    left_pane_queries = 1
 
     def setUp(self):
         RepresentativeScore.refresh()

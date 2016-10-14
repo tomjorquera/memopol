@@ -1,7 +1,7 @@
 from .base import BaseTest
 
 
-class NavigationPaneTest(BaseTest):
+class HomeTest(BaseTest):
     url = '/'
 
     def test_queries(self):
@@ -22,30 +22,10 @@ class NavigationPaneTest(BaseTest):
             - 1 for prefetching latest votes dossier documents chambers
         - 1 for Featured themes
             - 1 for featured themes
-        - 0 for Chambers
+        - 1 for Chambers
             - 1 for chambers and dossier/proposal counts
-              => note: django optimizes out the chamber query for left pane
-                 forms so this one actually does not add 1 to query count
         """
-        home_queries = 10
+        home_queries = 11
 
         with self.assertNumQueries(self.left_pane_queries + home_queries):
             self.client.get(self.url)
-
-    def test_rep_search_chambers(self):
-        self.selector_test('#form-rep #chamber-rep option')
-
-    def test_rep_search_countries(self):
-        self.selector_test('#form-rep #country option')
-
-    def test_rep_search_parties(self):
-        self.selector_test('#form-rep #party option')
-
-    def test_rep_search_committee(self):
-        self.selector_test('#form-rep #committee option')
-
-    def test_rep_search_delegation(self):
-        self.selector_test('#form-rep #delegation option')
-
-    def test_dossier_search_chambers(self):
-        self.selector_test('#form-dossier #chamber-dossier option')
