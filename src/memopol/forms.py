@@ -26,6 +26,7 @@ class RepresentativeSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='chamber-autocomplete',
+            attrs={'data-html': 'true'}
         )
     )
     country = forms.ModelChoiceField(
@@ -33,7 +34,8 @@ class RepresentativeSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='group-autocomplete',
-            forward=(forward.Const('country', 'kind'),)
+            forward=(forward.Const('country', 'kind'),),
+            attrs={'data-html': 'true'}
         )
     )
     party = forms.ModelChoiceField(
@@ -41,7 +43,8 @@ class RepresentativeSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='group-autocomplete',
-            forward=(forward.Const('group', 'kind'),)
+            forward=(forward.Const('group', 'kind'),),
+            attrs={'data-html': 'true'}
         )
     )
     committee = forms.ModelChoiceField(
@@ -49,7 +52,8 @@ class RepresentativeSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='group-autocomplete',
-            forward=(forward.Const('committee', 'kind'),)
+            forward=(forward.Const('committee', 'kind'),),
+            attrs={'data-html': 'true'}
         )
     )
     delegation = forms.ModelChoiceField(
@@ -57,7 +61,8 @@ class RepresentativeSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='group-autocomplete',
-            forward=(forward.Const('delegation', 'kind'),)
+            forward=(forward.Const('delegation', 'kind'),),
+            attrs={'data-html': 'true'}
         )
     )
 
@@ -73,5 +78,6 @@ class DossierSearchForm(forms.Form):
         required=False,
         widget=autocomplete.ModelSelect2(
             url='chamber-autocomplete',
+            attrs={'data-html': 'true'}
         )
     )

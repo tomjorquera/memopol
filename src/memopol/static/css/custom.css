@@ -197,6 +197,19 @@ select:focus, select.form-control:focus {
     color: #fff !important;
 }
 
+.select2-icon-result {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.select2-icon-result .group-icon {
+    flex-shrink: 0;
+}
+
+.select2-icon-result .select2-label {
+    flex-grow: 1;
+}
+
 /***************************************************************
 					Buttons
 ***************************************************************/
@@ -513,6 +526,14 @@ iframe {
 .lead .chamber-icon, .lead .group-icon, .lead .flag-icon {
     width: 1.75em;
     height: 1.75em;
+}
+
+.select2-icon-result .chamber-icon,
+.select2-icon-result .group-icon,
+.select2-icon-result .flag-icon {
+    width: 1.75em;
+    height: 1.75em;
+    margin-right: 0.5em;
 }
 
 .flag-icon:before {
