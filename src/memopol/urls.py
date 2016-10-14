@@ -8,6 +8,9 @@ from views.home import HomeView
 from views.autocomplete import (
     ProposalAutocomplete,
     RepresentativeAutocomplete,
+    ThemeAutocomplete,
+    ChamberAutocomplete,
+    GroupAutocomplete,
 )
 
 from views.charts import ThemeScoresJSONView, ChamberScoresJSONView
@@ -132,12 +135,30 @@ urlpatterns = [
         ProposalAutocomplete.as_view(),
         name='proposal-autocomplete',
     ),
+
     url(
         r'^autocomplete/representative/$',
         RepresentativeAutocomplete.as_view(),
         name='representative-autocomplete',
     ),
 
+    url(
+        r'^autocomplete/theme/$',
+        ThemeAutocomplete.as_view(),
+        name='theme-autocomplete',
+    ),
+
+    url(
+        r'^autocomplete/chamber/$',
+        ChamberAutocomplete.as_view(),
+        name='chamber-autocomplete',
+    ),
+
+    url(
+        r'^autocomplete/group/$',
+        GroupAutocomplete.as_view(),
+        name='group-autocomplete',
+    ),
 
     # Theme list
 

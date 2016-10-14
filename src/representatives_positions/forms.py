@@ -11,7 +11,9 @@ class PositionForm(forms.ModelForm):
     themes = forms.models.ModelMultipleChoiceField(
         queryset=Theme.objects.all(),
         required=False,
-        widget=forms.CheckboxSelectMultiple
+        widget=ModelSelect2Multiple(
+            url='theme-autocomplete',
+        )
     )
 
     class Meta:
