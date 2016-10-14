@@ -1,7 +1,6 @@
 from .forms import DossierSearchForm, RepresentativeSearchForm
 
 from memopol_settings.models import Setting
-from representatives.models import Chamber, Group
 
 
 def search_forms(request):

@@ -1,8 +1,7 @@
 from django import forms
 from dal import autocomplete, forward
 
-from representatives.models import Chamber, Group, Representative
-from representatives_votes.models import Dossier
+from representatives.models import Chamber, Group
 
 
 class RepresentativeSearchForm(forms.Form):
