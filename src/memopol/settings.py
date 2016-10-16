@@ -21,7 +21,10 @@ from django.utils.crypto import get_random_string
 #
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEBUG = os.environ.get('DJANGO_DEBUG', 'false').lower() == 'true'
+DEBUG = os.getenv('DJANGO_DEBUG', False)
+
+if hasattr(DEBUG, 'lower') and DEBUG.lower() in ('false', '0', 'none'):
+    DEBUG = False  # Support none-ish values
 
 #
 # Main Django config
@@ -226,11 +229,11 @@ PUBLIC_DIR = 'wsgi/static'
 
 DATABASES = {
     'default': {
-        'NAME': 'memopol',
-        'USER': 'memopol',
-        'PASSWORD': 'memopol',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'memopol'),
+        'USER': os.getenv('DB_USER', 'memopol'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'memopol'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
     }
 }
