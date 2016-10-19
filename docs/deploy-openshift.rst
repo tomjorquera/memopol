@@ -11,7 +11,7 @@ Clone the repository
 You should fork the project on github and use the fork's clone url. For the
 sake of the demo, we'll use the main repository URL::
 
-    $ git clone https://github.com/political-memory/political_memory.git
+    $ git clone https://git.laquadrature.net/memopol/memopol.git
     Cloning into 'political_memory'...
     remote: Counting objects: 2516, done.
     remote: Compressing objects: 100% (109/109), done.
@@ -54,7 +54,7 @@ Add the git remote openshift created for you, you can see it with
     $ rhc app-show -a yourappname
     [snip]
     Git URL:         ssh://569f5cf500045f6a1839a0a4@yourappname-yourdomain.rhcloud.com/~/git/yourappname.git/
-    Initial Git URL: https://github.com/political-memory/political_memory.git
+    Initial Git URL: https://git.laquadrature.net/memopol/memopol.git
     SSH:             569f5cf500045f6a1839a0a4@yourappname-yourdomain.rhcloud.com
     [snip]
 

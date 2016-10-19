@@ -19,7 +19,7 @@ that's how you will learn most.
 
 Here's how to try it::
 
-    $ git clone https://github.com/political-memory/political_memory.git
+    $ git clone https://git.laquadrature.net/memopol/memopol.git
     $ cd political_memory
     $ source bin/quickstart.sh
 
@@ -52,10 +52,10 @@ Alternatively, use the tox command::
 Clone the repository
 ====================
 
-You should fork the project on github and use the fork's clone url. For the
+You should fork the project on git laquadrature.net and use the fork's clone url. For the
 sake of the demo, we'll use the main repository URL::
 
-    $ git clone https://github.com/political-memory/political_memory.git
+    $ git clone https://git.laquadrature.net/memopol/memopol.git
     Cloning into 'political_memory'...
     remote: Counting objects: 2516, done.
     remote: Compressing objects: 100% (109/109), done.

@@ -6,7 +6,7 @@ Prerequisites
 
 You will need the following:
 
-* A clone of the git repository at ``https://github.com/political-memory/political_memory.git``
+* A clone of the git repository at ``https://git.laquadrature.net/memopol/memopol.git``
 * A dedicated python virtualenv
 * a PostgreSQL>=9.2 database (not necessarily on the same machine)
 * a WSGI-capable web server
