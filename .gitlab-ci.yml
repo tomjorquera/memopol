@@ -21,7 +21,7 @@ job install:
                 - src/memopol/bin/install_client_deps.sh
                 - memopol migrate --noinput
                 - memopol collectstatic --noinput
-                - sudo service uwsgi restart memopol
+                - touch /srv/memopol/ready
         stage: deploy
         tags: [memopol]
         environment: production
