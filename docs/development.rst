@@ -20,7 +20,7 @@ that's how you will learn most.
 Here's how to try it::
 
     $ git clone https://git.laquadrature.net/memopol/memopol.git
-    $ cd political_memory
+    $ cd memopol
     $ source bin/quickstart.sh
 
 If you want more control or if it doesn't work for you, then follow the steps
@@ -56,7 +56,7 @@ You should fork the project on git laquadrature.net and use the fork's clone url
 sake of the demo, we'll use the main repository URL::
 
     $ git clone https://git.laquadrature.net/memopol/memopol.git
-    Cloning into 'political_memory'...
+    Cloning into 'memopol'...
     remote: Counting objects: 2516, done.
     remote: Compressing objects: 100% (109/109), done.
     remote: Total 2516 (delta 44), reused 0 (delta 0), pack-reused 2402
@@ -64,7 +64,7 @@ sake of the demo, we'll use the main repository URL::
     Resolving deltas: 100% (1103/1103), done.
     Checking connectivity... done.
 
-    $ cd political_memory/
+    $ cd memopol/
 
 Create your own branch, ie::
 

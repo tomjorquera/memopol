@@ -16,7 +16,7 @@ Testing
 Use the ``tox -l`` command to list tests::
 
     $ pip install tox
-    $ cd political_memory/
+    $ cd memopol/
     $ tox -l
 
 Use the ``tox -e`` command to execute a particular test suite::
