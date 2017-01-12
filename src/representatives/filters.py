@@ -23,6 +23,8 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
             if len(request.GET[self.query_param]):
                 qs = qs.filter(mandates__in=Mandate.objects.filter(Q(end_date__gte=datetime.today)|
                         Q(end_date__isnull=True))
-                    .filter(Q(group__name=request.GET[self.query_param]))).distinct()
+                    .filter(Q(group__name=request.GET[self.query_param])|
+                        Q(group__abbreviation=request.GET[self.query_param])))
+                    .distinct()
                 return qs
         return qs
