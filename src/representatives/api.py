@@ -32,6 +32,8 @@ from .models import (
     WebSite,
 )
 
+from .filters import ActiveMandateQueryFilterBackend
+
 
 class DefaultWebPagination(pagination.PageNumberPagination):
     default_web_page_size = 10
@@ -56,7 +58,8 @@ class RepresentativeViewSet(viewsets.ReadOnlyModelViewSet):
         filters.DjangoFilterBackend,
         filters.SearchFilter,
         filters.OrderingFilter,
-        RQLFilterBackend
+        RQLFilterBackend,
+        ActiveMandateQueryFilterBackend
     )
     filter_fields = {
         'active': ['exact'],
