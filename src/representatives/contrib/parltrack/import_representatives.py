@@ -420,7 +420,12 @@ def main(stream=None):
     GenericImporter.pre_import(importer)
 
     for data in ijson.items(stream or sys.stdin, 'item'):
-        importer.manage_mep(data)
+        try:
+            importer.manage_mep(data)
+        except Exception as err:
+            logger.debug('error trying to import rep %s (%s)',
+                         str(data), str(err))
+
     # Commenting for now, it's a bit dangerous, if a json file was corrupt it
     # would drop valid data !
     # importer.post_import()

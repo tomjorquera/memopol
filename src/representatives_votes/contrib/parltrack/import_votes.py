@@ -255,4 +255,8 @@ def main(stream=None):
     command.init_cache()
 
     for vote_data in ijson.items(stream or sys.stdin, 'item'):
-        command.parse_vote_data(vote_data)
+        try:
+            command.parse_vote_data(vote_data)
+        except Exception as err:
+            logger.debug('error trying to import vote %s (%s)',
+                         str(vote_data), str(err))

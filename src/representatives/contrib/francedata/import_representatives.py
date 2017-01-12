@@ -380,7 +380,11 @@ def main(stream=None):
 
     for data in ijson.items(stream or sys.stdin, ''):
         for rep in data:
-            if rep['chambre'] == 'AN':
-                an_importer.manage_rep(rep)
-            elif rep['chambre'] == 'SEN':
-                sen_importer.manage_rep(rep)
+            try:
+                if rep['chambre'] == 'AN':
+                    an_importer.manage_rep(rep)
+                elif rep['chambre'] == 'SEN':
+                    sen_importer.manage_rep(rep)
+            except Exception as err:
+                logger.debug('error trying to import rep %s (%s)',
+                             str(rep), str(err))
