@@ -1,11 +1,13 @@
 from datetime import datetime
 
-from rest_framework.filters import BaseFilterBackend
 
+from rest_framework.filters import BaseFilterBackend
 from django.db.models import Q
 from django.conf import settings
 
+
 from .models import Mandate
+
 
 class ActiveMandateQueryFilterBackend(BaseFilterBackend):
     """
@@ -21,6 +23,8 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
 
         if self.query_param in request.GET:
             if len(request.GET[self.query_param]):
-                qs = qs.filter(mandates__in=Mandate.objects.filter(Q(end_date__gte=datetime.today)|Q(end_date__isnull=True)).filter(Q(group__name=request.GET[self.query_param])|Q(group__abbreviation=request.GET[self.query_param]))).distinct()
+                qs = qs.filter(mandates__in=Mandate.objects.filter(Q(end_date__gte=datetime.today)
+                    | Q(end_date__isnull=True)).filter(Q(group__name=request.GET[self.query_param])
+                        | Q(group__abbreviation=request.GET[self.query_param]))).distinct()
                 return qs
         return qs
