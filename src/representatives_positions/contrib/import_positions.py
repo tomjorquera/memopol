@@ -84,9 +84,8 @@ class PositionImporter:
                     row['first_name'], row['last_name'], row['url']))
 
             return True
-        except Exception as err:
-            logger.debug('error trying to import position %s (%s)',
-                         str(row), str(err))
+        except Exception:
+            logger.exception('error trying to import position %s', str(row))
             return False
 
 

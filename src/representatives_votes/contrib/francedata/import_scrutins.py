@@ -108,6 +108,5 @@ def main(stream=None):
     for data in ijson.items(stream or sys.stdin, 'item'):
         try:
             importer.parse_scrutin_data(data)
-        except Exception as err:
-            logger.debug('error trying to import scrutin %s (%s)',
-                         str(data), str(err))
+        except Exception:
+            logger.exception('error trying to import scrutin %s', str(data))

@@ -136,6 +136,5 @@ def main(stream=None):
     for data in ijson.items(stream or sys.stdin, 'item'):
         try:
             parse_dossier_data(data, an, sen)
-        except Exception as err:
-            logger.debug('error trying to import dossier %s (%s)',
-                         str(data), str(err))
+        except Exception:
+            logger.exception('error trying to import dossier %s', str(data))

@@ -385,6 +385,5 @@ def main(stream=None):
                     an_importer.manage_rep(rep)
                 elif rep['chambre'] == 'SEN':
                     sen_importer.manage_rep(rep)
-            except Exception as err:
-                logger.debug('error trying to import rep %s (%s)',
-                             str(rep), str(err))
+            except Exception:
+                logger.exception('error trying to import rep %s', str(rep))

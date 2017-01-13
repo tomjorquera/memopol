@@ -90,9 +90,9 @@ class RecommendationImporter:
                             ))
 
             return True
-        except Exception as err:
-            logger.debug('error trying to import recommendation %s (%s)',
-                         str(row), str(err))
+        except Exception:
+            logger.exception('error trying to import recommendation %s',
+                             str(row))
             return False
 
 

@@ -257,6 +257,5 @@ def main(stream=None):
     for vote_data in ijson.items(stream or sys.stdin, 'item'):
         try:
             command.parse_vote_data(vote_data)
-        except Exception as err:
-            logger.debug('error trying to import vote %s (%s)',
-                         str(vote_data), str(err))
+        except Exception:
+            logger.exception('error trying to import vote %s', str(vote_data))

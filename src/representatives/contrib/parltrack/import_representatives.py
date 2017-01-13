@@ -422,9 +422,8 @@ def main(stream=None):
     for data in ijson.items(stream or sys.stdin, 'item'):
         try:
             importer.manage_mep(data)
-        except Exception as err:
-            logger.debug('error trying to import rep %s (%s)',
-                         str(data), str(err))
+        except Exception:
+            logger.exception('error trying to import rep %s', str(data))
 
     # Commenting for now, it's a bit dangerous, if a json file was corrupt it
     # would drop valid data !
