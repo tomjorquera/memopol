@@ -24,7 +24,7 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
         if self.query_param in request.GET:
             if len(request.GET[self.query_param]):
                 # We want to check for params in a list of mandates
-                mandates = request.GET[self.query_params].split(',')
+                mandates = request.GET[self.query_param].split(',')
                 qs = qs.filter(mandates__in=Mandate.objects.filter(
                     Q(end_date__gte=datetime.today) |
                     Q(end_date__isnull=True)).filter(
