@@ -13,7 +13,7 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
     """
     A filter which check if a mandate is active for a reprensentative
 
-    the parameter used in the query to filter is, by default mandates_active
+    the parameter used in the query to filter is, by default active_mandates
     and it list a list of mandates among which one should be active.
     """
     query_param = getattr(settings, 'ACTIVE_MANDATES_PARAM', 'active_mandates')
@@ -31,5 +31,25 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
                         Q(group__name__in=mandates) |
                         Q(group__abbreviation__in=mandates)
                 )).distinct()
-                return qs
+        return qs
+
+class ActiveConstituencyFilterBackend(BaseFilterBackend):
+    """
+    A filter which check if a representative is active in a constituency
+
+    the parameter used in the query to filter is, by default, active_constituency.
+    """
+    query_param = getattr(settings, 'ACTIVE_CONSTITUENCY_PARAM', 'active_constituency')
+
+    def filter_queryset(self, request, queryset, view):
+        qs = queryset
+
+        if self.query_param in request.GET:
+            if len(request.GET[self.query_params]):
+                mandates = request.GET[self.query_param].split(',')
+                qs = qs.filter(mandates__in=Mandate.objects.filter(
+                    Q(end_date__gte=datetime.today) |
+                    Q(end_date__isnull=True)).filter(
+                        Q(constituency__name__in=mandates
+                )).distinct()
         return qs
