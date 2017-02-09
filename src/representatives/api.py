@@ -32,7 +32,8 @@ from .models import (
     WebSite,
 )
 
-from .filters import ActiveMandateQueryFilterBackend
+from .filters import (ActiveMandateQueryFilterBackend,
+    ActiveConstituencyFilterBackend)
 
 
 class DefaultWebPagination(pagination.PageNumberPagination):
@@ -59,7 +60,8 @@ class RepresentativeViewSet(viewsets.ReadOnlyModelViewSet):
         filters.SearchFilter,
         filters.OrderingFilter,
         RQLFilterBackend,
-        ActiveMandateQueryFilterBackend
+        ActiveMandateQueryFilterBackend,
+        ActiveConstituencyFilterBackend
     )
     filter_fields = {
         'active': ['exact'],
