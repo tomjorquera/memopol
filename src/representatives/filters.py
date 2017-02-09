@@ -50,6 +50,6 @@ class ActiveConstituencyFilterBackend(BaseFilterBackend):
                 qs = qs.filter(mandates__in=Mandate.objects.filter(
                     Q(end_date__gte=datetime.today) |
                     Q(end_date__isnull=True)).filter(
-                        Q(constituency__name__in=mandates
+                        Q(constituency__name__in=mandates)
                 )).distinct()
         return qs
