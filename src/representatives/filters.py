@@ -33,13 +33,16 @@ class ActiveMandateQueryFilterBackend(BaseFilterBackend):
                 )).distinct()
         return qs
 
+
 class ActiveConstituencyFilterBackend(BaseFilterBackend):
     """
     A filter which check if a representative is active in a constituency
 
-    the parameter used in the query to filter is, by default, active_constituency.
+    the parameter used in the query to filter is, by default,
+    active_constituency.
     """
-    query_param = getattr(settings, 'ACTIVE_CONSTITUENCY_PARAM', 'active_constituency')
+    query_param = getattr(settings,
+            'ACTIVE_CONSTITUENCY_PARAM', 'active_constituency')
 
     def filter_queryset(self, request, queryset, view):
         qs = queryset

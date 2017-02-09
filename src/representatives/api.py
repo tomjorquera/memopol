@@ -35,6 +35,7 @@ from .models import (
 from .filters import (ActiveMandateQueryFilterBackend,
     ActiveConstituencyFilterBackend)
 
+
 class DefaultWebPagination(pagination.PageNumberPagination):
     default_web_page_size = 10
 
