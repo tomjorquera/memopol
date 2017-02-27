@@ -1,8 +1,10 @@
-before_script:
-        - export PIP_CACHE_DIR="pip-cache"
+variables:
+        PIP_CACHE_DIR = "$CI_PROJECT_DIR/pip-cache"
+
 cache:
         paths:
-                - pip-cache
+                - "$CI_PROJECT_DIR/pip-cache"
+        key: "$CI_PROJECT_ID"
 job test:
         script:
                 - tox
