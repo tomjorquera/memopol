@@ -40,3 +40,14 @@ class RepresentativeManagerTest(test.TestCase):
         - mandates.
         """
         self.functional_test(6, '/api/representatives/?format=json')
+        # Test the filters
+
+    def test_representatives_api_mandates(self):
+        self.functional_test(1, '/api/representatives/'
+                + '?active_mandates=INTA'
+                + '&format=json')
+
+    def test_representatives_api_constituency(self):
+        self.functional_test(6, '/api/representatives/'
+                + '?active_constituency=European%20Parliament'
+                + '&format=json')

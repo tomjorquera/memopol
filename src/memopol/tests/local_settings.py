@@ -14,11 +14,11 @@ PUBLIC_DIR = 'wsgi/static'
 
 DATABASES = {
     'default': {
-        'NAME': os.environ.get('CI_BUILD_REF_NAME'),
+        'NAME': 'test',
         'USER': 'memopol_test',
         'PASSWORD': 'memopol_test',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
     }
 }
