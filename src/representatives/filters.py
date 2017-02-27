@@ -49,7 +49,7 @@ class ActiveConstituencyFilterBackend(BaseFilterBackend):
         qs = queryset
 
         if self.query_param in request.GET:
-            if len(request.GET[self.query_params]):
+            if len(request.GET[self.query_param]):
                 mandates = urlunquote(request.GET[self.query_param]).split(',')
                 qs = qs.filter(mandates__in=Mandate.objects.filter(
                     Q(end_date__gte=datetime.today) |
