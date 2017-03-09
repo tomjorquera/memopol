@@ -94,4 +94,7 @@ def main(stream=None):
 
     ep = Chamber.objects.get(abbreviation='EP')
     for data in ijson.items(stream or sys.stdin, 'item'):
-        parse_dossier_data(data, ep)
+        try:
+            parse_dossier_data(data, ep)
+        except Exception:
+            logger.exception('error trying to import dossier %s', str(data))

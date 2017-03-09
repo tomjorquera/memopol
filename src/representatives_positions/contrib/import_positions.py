@@ -45,44 +45,48 @@ class PositionImporter:
         return rep
 
     def import_row(self, row):
-        if len(row['date']) == 0:
-            if len(row['url']) == 0:
-                row['date'] = '2010-01-01'
-                row['url'] = '/'
-            else:
-                row['date'] = position_dates.get(row['url'], None)
-
-                if row['date'] is None:
-                    logger.warn('Dateless position for %s %s on URL %s' %
-                        (row['first_name'], row['last_name'], row['url']))
-                    return False
-
-        rep = self.get_rep(row['first_name'], row['last_name'])
-        if rep is None:
-            logger.warn('Could not find rep %s %s' % (row['first_name'],
-                row['last_name']))
-            return False
-
-        text = re.sub('(^<p>|</p>$)', '', row['content'])
-        if row['title'] is not None and len(row['title']) > 0:
-            text = '%s\n%s' % (row['title'], text)
-
         try:
-            position = Position.objects.get(representative=rep,
-                link=row['url'])
-        except Position.DoesNotExist:
-            position = Position(
-                representative=rep,
-                link=row['url'],
-                datetime=row['date'],
-                text=text,
-                published=True
-            )
-            position.save()
-            logger.info('Created position for %s %s on URL %s' % (
-                row['first_name'], row['last_name'], row['url']))
+            if len(row['date']) == 0:
+                if len(row['url']) == 0:
+                    row['date'] = '2010-01-01'
+                    row['url'] = '/'
+                else:
+                    row['date'] = position_dates.get(row['url'], None)
 
-        return True
+                    if row['date'] is None:
+                        logger.warn('Dateless position for %s %s on URL %s' %
+                            (row['first_name'], row['last_name'], row['url']))
+                        return False
+
+            rep = self.get_rep(row['first_name'], row['last_name'])
+            if rep is None:
+                logger.warn('Could not find rep %s %s' % (row['first_name'],
+                    row['last_name']))
+                return False
+
+            text = re.sub('(^<p>|</p>$)', '', row['content'])
+            if row['title'] is not None and len(row['title']) > 0:
+                text = '%s\n%s' % (row['title'], text)
+
+            try:
+                position = Position.objects.get(representative=rep,
+                    link=row['url'])
+            except Position.DoesNotExist:
+                position = Position(
+                    representative=rep,
+                    link=row['url'],
+                    datetime=row['date'],
+                    text=text,
+                    published=True
+                )
+                position.save()
+                logger.info('Created position for %s %s on URL %s' % (
+                    row['first_name'], row['last_name'], row['url']))
+
+            return True
+        except Exception:
+            logger.exception('error trying to import position %s', str(row))
+            return False
 
 
 def main(stream=None):
