@@ -134,4 +134,7 @@ def main(stream=None):
     an = Chamber.objects.get(abbreviation='AN')
     sen = Chamber.objects.get(abbreviation='SEN')
     for data in ijson.items(stream or sys.stdin, 'item'):
-        parse_dossier_data(data, an, sen)
+        try:
+            parse_dossier_data(data, an, sen)
+        except Exception:
+            logger.exception('error trying to import dossier %s', str(data))
