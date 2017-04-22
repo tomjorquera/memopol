@@ -30,6 +30,8 @@ setup(name='political-memory',
         'pytz',  # Always use up-to-date TZ data
         'django-suit>=0.2,<0.3',
         'psycopg2>=2,<3',
+        'django-haystack==2.6.0',
+        'pysolr==3.6.0'
     ],
     extras_require={
         # Full version hardcode for testing dependencies so that
