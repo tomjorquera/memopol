@@ -41,6 +41,7 @@ memopol migrate
 
 # Import sample data
 memopol loaddata data_sample.json
+memopol refresh_scores
 
 echo
 echo "You're all set!"

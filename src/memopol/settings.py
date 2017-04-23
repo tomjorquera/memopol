@@ -300,10 +300,14 @@ with open(SECRET_FILE, 'r') as f:
 
 #
 # Add allowed hosts from environment
+# Automaticaly add 127.0.0.1 in ALLOWED_HOSTS on DEBUG
 #
 
 if 'DJANGO_ALLOWED_HOSTS' in os.environ:
     ALLOWED_HOSTS += os.environ.get('DJANGO_ALLOWED_HOSTS').split(',')
+
+if DEBUG:
+    ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 
 #
 # Raven configuration
