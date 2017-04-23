@@ -6,8 +6,8 @@ Local development tutorial
           decisions.
 
 This tutorial drives through a local installation of the project for
-development on Linux. It requires git, a fairly recent version of python2 and
-virtualenv.
+development on Linux. It requires git, a fairly recent version of python2,
+virtualenv and PostgreSQL.
 
 Quickstart
 ==========
@@ -19,12 +19,18 @@ that's how you will learn most.
 
 Here's how to try it::
 
-    $ git clone https://git.laquadrature.net/memopol/memopol.git
+    $ git clone gitlab@git.laquadrature.net:memopol/memopol.git
     $ cd memopol
     $ source bin/quickstart.sh
 
 If you want more control or if it doesn't work for you, then follow the steps
 below or have a look at what the quickstart script does.
+
+.. note::
+  If you are using python 3 on your system, the quickstart script will install
+  the virtualenv with this version. You'll need to remove the directory
+  'memopol_env' and recreate it with the python version 2.7 in parameter
+  'virtualenv -p /usr/bin/python2.7 memopol_env'
 
 Make a virtual environment
 ==========================
@@ -52,17 +58,18 @@ Alternatively, use the tox command::
 Clone the repository
 ====================
 
-You should fork the project on git laquadrature.net and use the fork's clone url. For the
-sake of the demo, we'll use the main repository URL::
+The project is hosted on https://git.laquadrature.net/memopol/memopol
 
-    $ git clone https://git.laquadrature.net/memopol/memopol.git
-    Cloning into 'memopol'...
-    remote: Counting objects: 2516, done.
-    remote: Compressing objects: 100% (109/109), done.
-    remote: Total 2516 (delta 44), reused 0 (delta 0), pack-reused 2402
-    Receiving objects: 100% (2516/2516), 4.40 MiB | 79.00 KiB/s, done.
-    Resolving deltas: 100% (1103/1103), done.
-    Checking connectivity... done.
+You can get the code with git ::
+
+    $ git clone https://git.laquadrature.net/memopol/memopol
+    Clonage dans 'memopol'...
+    remote: Counting objects: 7972, done.
+    remote: Compressing objects: 100% (2668/2668), done.
+    remote: Total 7972 (delta 5203), reused 7830 (delta 5099)
+    Réception d'objets: 100% (7972/7972), 4.88 MiB | 4.73 MiB/s, fait.
+    Résolution des deltas: 100% (5203/5203), fait.
+    Vérification de la connectivité... fait.
 
     $ cd memopol/
 
@@ -159,6 +166,10 @@ Provision with data
 You can load a small data sample for quick setup:
 
     $ memopol loaddata small_sample.json
+
+If you launch memopol for the first time, you need to launch this command :
+
+    $ memopol refresh_scores
 
 Or actual data (takes a while)::
 
