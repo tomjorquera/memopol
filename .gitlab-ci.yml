@@ -1,31 +1,31 @@
 variables:
-        PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
 
 cache:
-        paths:
-                - "$CI_PROJECT_DIR/pip-cache"
-        key: "$CI_PROJECT_ID"
+    paths:
+        - "$CI_PROJECT_DIR/pip-cache"
+    key: "$CI_PROJECT_ID"
 job test:
-        script:
-                - tox
-        stage: test
-        tags: [memopol]
+    script:
+        - tox
+    stage: test
+    tags: [memopol]
 job install:
-        script:
-                - source /srv/memopol/memopol_env/bin/activate
-                - cd /srv/memopol/memopol_env/src/memopol/docs
-                - make html
-                - cd /srv/memopol/memopol_env/src/memopol
-                - git fetch origin
-                - git reset --hard origin/master
-                - find . -name '*.pyc' -delete
-                - pip install -Ue .
-                - src/memopol/bin/install_client_deps.sh
-                - memopol migrate --noinput
-                - memopol collectstatic --noinput
-                - touch /srv/memopol/ready
-        stage: deploy
-        tags: [memopol]
-        environment: production
-        only:
-                - master
+    script:
+        - source /srv/memopol/memopol_env/bin/activate
+        - cd /srv/memopol/memopol_env/src/memopol/docs
+        - make html
+        - cd /srv/memopol/memopol_env/src/memopol
+        - git fetch origin
+        - git reset --hard origin/master
+        - find . -name '*.pyc' -delete
+        - pip install -Ue .
+        - src/memopol/bin/install_client_deps.sh
+        - memopol migrate --noinput
+        - memopol collectstatic --noinput
+        - touch /srv/memopol/ready
+    stage: deploy
+    tags: [memopol]
+    environment: production
+    only:
+        - master
