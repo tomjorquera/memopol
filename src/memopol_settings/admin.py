@@ -8,4 +8,5 @@ class SettingAdmin(admin.ModelAdmin):
     list_editable = ('key', 'value', 'comment')
     list_filter = ('key',)
 
+
 admin.site.register(Setting, SettingAdmin)

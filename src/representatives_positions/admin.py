@@ -11,12 +11,14 @@ def publish_positions(modeladmin, request, queryset):
     """Set published to True for the queryset"""
     queryset.update(published=True)
 
+
 publish_positions.short_description = 'Publish selected positions'
 
 
 def unpublish_positions(modeladmin, request, queryset):
     """Set published to False for the queryset"""
     queryset.update(published=False)
+
 
 unpublish_positions.short_description = 'Unpublish selected positions'
 

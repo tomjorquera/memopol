@@ -13,4 +13,5 @@ class RecommendationsAdmin(admin.ModelAdmin):
                      'proposal__dossier__title')
     form = RecommendationForm
 
+
 admin.site.register(Recommendation, RecommendationsAdmin)

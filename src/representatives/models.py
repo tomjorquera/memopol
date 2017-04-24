@@ -7,6 +7,7 @@ from django.utils.encoding import smart_unicode
 from django.utils.functional import cached_property
 from memopol.utils import strip_accents
 
+
 class TimeStampedModel(models.Model):
     """
     An abstract base class model that provides self-updating

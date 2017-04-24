@@ -56,6 +56,7 @@ class VoteAdmin(admin.ModelAdmin):
     def proposal_reference(self, obj):
         return obj.proposal.reference
 
+
 admin.site.register(Dossier, DossierAdmin)
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(Proposal, ProposalAdmin)

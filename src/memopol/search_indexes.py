@@ -1,6 +1,6 @@
-import datetime
 from haystack import indexes
 from representatives.models import Representative
+
 
 class RepresentativeIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.EdgeNgramField(document=True, use_template=True)

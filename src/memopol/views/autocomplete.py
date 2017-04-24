@@ -21,6 +21,7 @@ class RepresentativeAutocomplete(autocomplete.Select2QuerySetView):
 
         return qs
 
+
 class ProposalAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         qs = Proposal.objects.all()
