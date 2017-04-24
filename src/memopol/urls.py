@@ -26,6 +26,7 @@ from views.representative_detail_votes import RepresentativeDetailVotes
 from views.representative_detail_mandates import RepresentativeDetailMandates
 from views.representative_detail_positions import RepresentativeDetailPositions
 from views.representative_list import RepresentativeList
+from views.representative_search import search_autocomplete
 
 from views.redirects import (
     RedirectRepresentativeDetail,
@@ -240,6 +241,11 @@ urlpatterns = [
         r'^themes/(?P<slug>[-\w]+)/none/$',
         ThemeDetailBase.as_view(),
         name='theme-none'
+    ),
+    url(
+        r'^representative/search/$',
+        search_autocomplete,
+        name="representative-search-name-autocomplete"
     ),
 
 ] + legacy_patterns
