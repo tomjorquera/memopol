@@ -26,7 +26,7 @@ qa:
 
 docs:
     stage: test
-    script: tox -e docs
+    script: git diff --raw HEAD^1 | grep docs || tox -e docs
     tags: [memopol]
 
 deploy:
