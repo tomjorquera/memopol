@@ -1,10 +1,6 @@
 Local development tutorial
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. warn:: I reverse-engineered this from the source code I inherited, I might
-          not be doing the right way nor be able to defend all of technical
-          decisions.
-
 This tutorial drives through a local installation of the project for
 development on Linux. It requires git, a fairly recent version of python2,
 virtualenv and PostgreSQL.
