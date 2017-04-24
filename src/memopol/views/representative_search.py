@@ -4,6 +4,7 @@ from haystack.query import SearchQuerySet
 from django.core.urlresolvers import reverse
 from memopol.utils import strip_accents
 
+
 def search_autocomplete(request):
     if request.is_ajax():
         q = strip_accents(request.GET.get('term', ''))
@@ -15,7 +16,8 @@ def search_autocomplete(request):
                 result_json['id'] = result.id
                 result_json['label'] = result.full_name
                 result_json['value'] = result.full_name
-                result_json['link'] = reverse('representative-detail', kwargs={'slug': result.slug})
+                result_json['link'] = reverse(
+                    'representative-detail', kwargs={'slug': result.slug})
                 json_results.append(result_json)
             data = json.dumps(json_results)
     else:
