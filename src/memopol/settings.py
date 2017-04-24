@@ -344,11 +344,17 @@ if os.path.exists(RAVEN_FILE):
         RAVEN_CONFIG = {'dsn': f.read().strip()}
 
 # Haystack with Solr config
-DJANGO_HAYSTACK_ENABLE = True
-if DJANGO_HAYSTACK_ENABLE:
+if not DEBUG:
     HAYSTACK_CONNECTIONS = {
         'default': {
             'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
             'URL': 'http://127.0.0.1:8080/solr',
+        },
+    }
+else:
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
         },
     }

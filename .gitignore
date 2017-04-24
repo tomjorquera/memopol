@@ -36,3 +36,4 @@ data/
 
 # local setup
 .memopol.alias
+whoosh_index/

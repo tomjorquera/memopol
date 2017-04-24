@@ -7,7 +7,6 @@ from memopol.utils import strip_accents
 def search_autocomplete(request):
     if request.is_ajax():
         q = strip_accents(request.GET.get('term', ''))
-        print q
         if q is not None:
             json_results = []
             sqs = SearchQuerySet().autocomplete(ascii_name=q)
@@ -18,7 +17,6 @@ def search_autocomplete(request):
                 result_json['value'] = result.full_name
                 result_json['link'] = reverse('representative-detail', kwargs={'slug': result.slug})
                 json_results.append(result_json)
-                print result.ascii_name
             data = json.dumps(json_results)
     else:
         data = "Fail"
