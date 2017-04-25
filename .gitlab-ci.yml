@@ -14,26 +14,36 @@ before_script:
     - pip install --user tox
     - export PATH="$HOME/.local/bin:$PATH"
 
-unit:
+unit tests:
     stage: test
     script: tox -e py27
     tags: [memopol]
 
-qa:
+qa checks:
     stage: test
     script: tox -e qa
     tags: [memopol]
 
-docs:
+docs build:
     stage: test
     script: git diff --raw HEAD^1 | grep docs || tox -e docs
     tags: [memopol]
 
-deploy:
+docs deploy:
+    stage: deploy
     script:
         - source /srv/memopol/memopol_env/bin/activate
         - cd /srv/memopol/memopol_env/src/memopol/docs
         - make html
+    tags: [memopol]
+    environment: production
+    only:
+        - master
+
+django deploy:
+    stage: deploy
+    script:
+        - source /srv/memopol/memopol_env/bin/activate
         - cd /srv/memopol/memopol_env/src/memopol
         - git fetch origin
         - git reset --hard origin/master
@@ -43,7 +53,6 @@ deploy:
         - memopol migrate --noinput
         - memopol collectstatic --noinput
         - touch /srv/memopol/ready
-    stage: deploy
     tags: [memopol]
     environment: production
     only:
