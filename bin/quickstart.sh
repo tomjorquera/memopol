@@ -43,6 +43,9 @@ memopol migrate
 memopol loaddata data_sample.json
 memopol refresh_scores
 
+# Build index for Whoosh
+memopol rebuild_index
+
 echo
 echo "You're all set!"
 echo "To start the application run the following from the repository root ($REPOROOT):"
