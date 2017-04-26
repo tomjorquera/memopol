@@ -5,8 +5,47 @@ This tutorial drives through a local installation of the project for
 development on Linux. It requires git, a fairly recent version of python2,
 virtualenv and PostgreSQL.
 
-Quickstart
-==========
+Setup the database
+==================
+
+Memopol requires PostgreSQL 9.1 or higher.  It used to run with SQLite, too, but
+that is no longer the case. It is better to install and configure you're local
+PostgreSQL server before starting to install Memopol.
+
+On Debian
+---------
+
+To setup you're PostgreSQL database on a debian stable distribution, you can use
+the package manager apt::
+
+  $ apt install postgresql postgresql-server-dev-9.X
+
+Then you need to create the 'memopol'  user and the 'memopol' database::
+
+  # To have a root access on Postgres, you need to connect as user 'postgres'
+  $ su - postgres
+  $ psql -c "create user memopol with password 'memopol';"
+  $ psql -c "alter role memopol with createdb;"
+  $ psql -c "create database memopol with owner memopol;"
+  $ exit
+
+You're database is now setup for Memopol. You can now launch the 'quickstart.sh'
+ script to automatically install all the components or do it manually.
+
+In General
+----------
+
+Make sure the corresponding user and database exist on your system; the user
+will need the 'createdb' permission in order to be able to run tests.  To create
+them, you may use the following commands::
+
+    $ psql -c "create user memopol with password 'memopol';" -U postgres
+    $ psql -c "alter role memopol with createdb;" -U postgres
+    $ psql -c "create database memopol with owner memopol;" -U postgres
+
+
+Automatic Install
+=================
 
 There is a quickstart script used and tested manually by some of the
 developers. Feel free to try it, but don't worry if it doesn't work for you
@@ -19,14 +58,43 @@ Here's how to try it::
     $ cd memopol
     $ source bin/quickstart.sh
 
+At this point, you should now run the development server and access to Memopol::
+
+  $ memopol runserver
+
+You should see a
+
 If you want more control or if it doesn't work for you, then follow the steps
 below or have a look at what the quickstart script does.
 
-.. note::
-  If you are using python 3 on your system, the quickstart script will install
-  the virtualenv with this version. You'll need to remove the directory
-  'memopol_env' and recreate it with the python version 2.7 in parameter
-  'virtualenv -p /usr/bin/python2.7 memopol_env'
+Development helper
+===================
+
+You can run the script 'bin/dev.sh' to automaticaly setup some aliases. It works
+only with Bash and Zsh.
+
+The script build a custom file named '.memopol.alias' at the root of the project
+containing all the aliases for memopol. All the path to the project are build
+automatically. A single line is added to your '$HOME/.bashrc' or '$HOME/.zshrc'
+to source the aliases.
+
+After execure 'bin/dev.sh' you should close the current terminal and open
+another one to have access to the aliases.
+
+There is a quick list of available aliases::
+
+  memopol-code : Go into the repository and activate the virtualenv
+  memopol-launch : Run the development server echo
+  memopol-update-all : Get all the production data
+  memopol-refresh-scores : Refresh all scores
+
+.. warning:: If you are using multiple setup of Memopol, it is not recommended to
+  use this script.
+
+If you need to change the location of the project, you should remove this line
+from your .bashrc or .zshrc::
+
+  source $PATH_TO_THE_PROJECT/.memopol.alias
 
 Make a virtual environment
 ==========================
@@ -112,26 +180,6 @@ the ``DJANGO_DEBUG`` variable in the current shell::
 
     $ export DJANGO_DEBUG=True
 
-Setup the database
-==================
-
-Memopol requires PostgreSQL 9.1 or higher.  It used to run with SQLite, too, but
-that is no longer the case.  Memopol uses the following environment variables
-for database access:
-
-* ``MEMOPOL_DB_NAME`` (defaults to 'memopol')
-* ``MEMOPOL_DB_USER`` (defaults to 'memopol')
-* ``MEMOPOL_DB_PASSWORD`` (defaults to 'memopol')
-* ``MEMOPOL_DB_HOST`` (defaults to 'localhost')
-* ``MEMOPOL_DB_PORT`` (defaults to '5432')
-
-Make sure the corresponding user and database exist on your system; the user
-will need the 'createdb' permission in order to be able to run tests.  To create
-them, you may use the following commands::
-
-    $ psql -c "create user memopol with password 'memopol';" -U postgres
-    $ psql -c "alter role memopol with createdb;" -U postgres
-    $ psql -c "create database memopol with owner memopol;" -U postgres
 
 Database migrations
 ===================
