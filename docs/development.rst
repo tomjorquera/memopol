@@ -30,7 +30,7 @@ Then you need to create the 'memopol'  user and the 'memopol' database::
   $ exit
 
 You're database is now setup for Memopol. You can now launch the 'quickstart.sh'
- script to automatically install all the components or do it manually.
+script to automatically install all the components or do it manually.
 
 In General
 ----------
@@ -62,8 +62,6 @@ At this point, you should now run the development server and access to Memopol::
 
   $ memopol runserver
 
-You should see a
-
 If you want more control or if it doesn't work for you, then follow the steps
 below or have a look at what the quickstart script does.
 
@@ -78,12 +76,13 @@ containing all the aliases for memopol. All the path to the project are build
 automatically. A single line is added to your '$HOME/.bashrc' or '$HOME/.zshrc'
 to source the aliases.
 
-After execure 'bin/dev.sh' you should close the current terminal and open
+After execute 'bin/dev.sh' you should close the current terminal and open
 another one to have access to the aliases.
 
 There is a quick list of available aliases::
 
-  memopol-code : Go into the repository and activate the virtualenv
+  memopol-code : Go into the repository and activate virtualenv and
+  set Django in debug mode
   memopol-launch : Run the development server echo
   memopol-update-all : Get all the production data
   memopol-refresh-scores : Refresh all scores
@@ -175,7 +174,7 @@ Activate ``DJANGO_DEBUG``
 =========================
 
 ``DEBUG`` is disabled by default, the development server
-won't run properly by default thnen, to enable it export
+won't run properly by default then, to enable it export
 the ``DJANGO_DEBUG`` variable in the current shell::
 
     $ export DJANGO_DEBUG=True
