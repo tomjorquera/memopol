@@ -29,6 +29,7 @@ case $SHELL in
 	;;
 *)
 	echo "SHELL don't supported.  Try using BASH or ZSH, or manually."
+	RCSHELL="/dev/null"
 	;;
 esac
 
