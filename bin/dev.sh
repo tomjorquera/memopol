@@ -11,7 +11,7 @@ REPOROOT="$( readlink -m "${BASH_SOURCE[0]}"/../..)"
 ALIASROOT=$REPOROOT"/.memopol.alias"
 echo $ALIASROOT
 echo "Create a dedicated alias file in $ALIASROOT"
-echo "alias memopol-code=\"cd $REPOROOT && source $REPOROOT/memopol_env/bin/activate && DJANGO_DEBUG=True\"" > $ALIASROOT
+echo "alias memopol-code=\"cd $REPOROOT && source $REPOROOT/memopol_env/bin/activate && export DJANGO_DEBUG=True\"" > $ALIASROOT
 echo "alias memopol-launch=\"memopol-code && memopol runserver\"" >> $ALIASROOT
 echo "alias memopol-update-all=\"memopol-code && bin/update_all\"" >> $ALIASROOT
 echo "alias memopol-refresh-scores=\"memopol-code && memopol refresh_scores\"" >> $ALIASROOT
