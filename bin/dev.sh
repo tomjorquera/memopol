@@ -28,7 +28,7 @@ case $SHELL in
 	RCSHELL="$HOME/.zshrc"
 	;;
 *)
-	echo "SHELL don't supported.  Try using BASH or ZSH, or manually."
+	echo "SHELL not supported.  Try using BASH or ZSH, or set alias manually."
 	RCSHELL="/dev/null"
 	;;
 esac
@@ -40,5 +40,5 @@ source $ALIASROOT
 echo -e "You can use the following aliases :\n"
 echo -e "\t memopol-code : Go into the repository and activate the virtualenv"
 echo -e "\t memopol-launch : Run the development server"
-echo -e "\t memopoll-update-all : Get all the production data"
+echo -e "\t memopol-update-all : Get all the production data"
 echo -e "\t memopol-refresh-scores : Refresh all scores"
