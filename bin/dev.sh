@@ -16,19 +16,21 @@ echo "alias memopol-launch=\"memopol-code && memopol runserver\"" >> $ALIASROOT
 echo "alias memopol-update-all=\"memopol-code && bin/update-all\"" >> $ALIASROOT
 echo "alias memopol-refresh-scores=\"memopol-code && memopol refresh_scores\"" >> $ALIASROOT
 
-if [ $SHELL = "/bin/bash" ]
-then
+case $SHELL in
+*/bash)
 	echo "Bash detected"
 	echo "Update $HOME/.bashrc file"
-  RCSHELL="$HOME/.bashrc"
-elif [ $SHELL = "/bin/zsh" ]
-then
-  echo "Zsh detected"
-  echo "Update $HOME/.zshrc file"
-  RCSHELL="$HOME/.zshrc"
-else
+	RCSHELL="$HOME/.bashrc"
+	;;
+*/zsh)
+	echo "Zsh detected"
+	echo "Update $HOME/.zshrc file"
+	RCSHELL="$HOME/.zshrc"
+	;;
+*)
 	echo "SHELL don't supported.  Try using BASH or ZSH, or manually."
-fi
+	;;
+esac
 
 echo "source $ALIASROOT" >> $RCSHELL
 source $ALIASROOT
