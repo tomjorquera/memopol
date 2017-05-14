@@ -31,4 +31,6 @@ def skip_votes(sender, vote_data=None, **kwargs):
 
     if vote_data.get('epref', None) not in dossiers:
         return False
+
+
 vote_pre_import.connect(skip_votes)

@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'fontawesome',
     'rest_framework',
     'taggit',
+    'haystack',
 
     # memopol apps
     'core',
@@ -341,3 +342,19 @@ if os.path.exists(RAVEN_FILE):
 
     with open(RAVEN_FILE, 'r') as f:
         RAVEN_CONFIG = {'dsn': f.read().strip()}
+
+# Haystack with Solr config
+if not DEBUG:
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+            'URL': 'http://127.0.0.1:8080/solr',
+        },
+    }
+else:
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        },
+    }

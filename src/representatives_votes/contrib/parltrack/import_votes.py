@@ -26,6 +26,7 @@ def _parse_date(date_str):
         date_parse(date_str),
         date_timezone('Europe/Brussels'))
 
+
 JSON_URL = 'http://parltrack.euwiki.org/dumps/ep_votes.json.xz'
 DESTINATION = join('/tmp', 'ep_votes.json')
 RE_COMVOTE_REF = re.compile(r'&reference=([^&]+)')

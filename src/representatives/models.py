@@ -5,6 +5,7 @@ from datetime import datetime
 from django.db import models
 from django.utils.encoding import smart_unicode
 from django.utils.functional import cached_property
+from memopol.utils import strip_accents
 
 
 class TimeStampedModel(models.Model):
@@ -75,6 +76,9 @@ class Representative(TimeStampedModel):
     def gender_as_str(self):
         genders = {0: 'N/A', 1: 'F', 2: 'M'}
         return genders[self.gender]
+
+    def ascii_name(self):
+        return strip_accents(self.full_name).lower()
 
     class Meta:
         ordering = ['last_name', 'first_name']
