@@ -11,24 +11,27 @@ REPOROOT="$( readlink -m "${BASH_SOURCE[0]}"/../..)"
 ALIASROOT=$REPOROOT"/.memopol.alias"
 echo $ALIASROOT
 echo "Create a dedicated alias file in $ALIASROOT"
-echo "alias memopol-code=\"cd $REPOROOT && source $REPOROOT/memopol_env/bin/activate && DJANGO_DEBUG=True\"" > $ALIASROOT
+echo "alias memopol-code=\"cd $REPOROOT && source $REPOROOT/memopol_env/bin/activate && export DJANGO_DEBUG=True\"" > $ALIASROOT
 echo "alias memopol-launch=\"memopol-code && memopol runserver\"" >> $ALIASROOT
-echo "alias memopol-update-all=\"memopol-code && bin/update-all\"" >> $ALIASROOT
+echo "alias memopol-update-all=\"memopol-code && bin/update_all\"" >> $ALIASROOT
 echo "alias memopol-refresh-scores=\"memopol-code && memopol refresh_scores\"" >> $ALIASROOT
 
-if [ $SHELL = "/bin/bash" ]
-then
+case $SHELL in
+*/bash)
 	echo "Bash detected"
 	echo "Update $HOME/.bashrc file"
-  RCSHELL="$HOME/.bashrc"
-elif [ $SHELL = "/bin/zsh" ]
-then
-  echo "Zsh detected"
-  echo "Update $HOME/.zshrc file"
-  RCSHELL="$HOME/.zshrc"
-else
-	echo "SHELL don't supported.  Try using BASH or ZSH, or manually."
-fi
+	RCSHELL="$HOME/.bashrc"
+	;;
+*/zsh)
+	echo "Zsh detected"
+	echo "Update $HOME/.zshrc file"
+	RCSHELL="$HOME/.zshrc"
+	;;
+*)
+	echo "SHELL not supported.  Try using BASH or ZSH, or set alias manually."
+	RCSHELL="/dev/null"
+	;;
+esac
 
 echo "source $ALIASROOT" >> $RCSHELL
 source $ALIASROOT
@@ -37,5 +40,5 @@ source $ALIASROOT
 echo -e "You can use the following aliases :\n"
 echo -e "\t memopol-code : Go into the repository and activate the virtualenv"
 echo -e "\t memopol-launch : Run the development server"
-echo -e "\t memopoll-update-all : Get all the production data"
+echo -e "\t memopol-update-all : Get all the production data"
 echo -e "\t memopol-refresh-scores : Refresh all scores"
