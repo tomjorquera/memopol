@@ -32,7 +32,7 @@ setup(name='political-memory',
         'psycopg2>=2,<3',
         'django-haystack==2.6.0',
         'pysolr==3.6.0',
-        'Whoosh==2.7.4'
+        'Whoosh==2.7.4',
 	    'alabaster==0.7.10',
     ],
     extras_require={
