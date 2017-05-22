@@ -17,6 +17,10 @@ class PositionFormMixin(generic.View):
     position_created = False
 
     @csrf_exempt
+    def dispatch(self, request, *args, **kwargs):
+        return super(PositionFormMixin, self).dispatch(
+            request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         if 'position-representatives' in request.POST:
             self.position_form = PositionForm(request.POST, prefix='position')
