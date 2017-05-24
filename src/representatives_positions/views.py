@@ -19,7 +19,7 @@ class PositionFormMixin(generic.View):
 
     @method_decorator(csrf_exempt)
     def dispatch(self, *args, **kwargs):
-        return super(HomeView, self).dispatch(*args, **kwargs)
+        return super(PositionFormMixin, self).dispatch(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         if 'position-representatives' in request.POST:
