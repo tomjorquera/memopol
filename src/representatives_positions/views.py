@@ -1,4 +1,6 @@
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from .forms import PositionForm
 
@@ -14,6 +16,10 @@ class PositionFormMixin(generic.View):
 
     position_form = None
     position_created = False
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(HomeView, self).dispatch(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         if 'position-representatives' in request.POST:
