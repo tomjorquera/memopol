@@ -5,8 +5,6 @@ import random
 
 from django.db.models import Q, Count
 from django.views import generic
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 
 from representatives.models import Chamber, Representative
 from representatives_positions.views import PositionFormMixin
@@ -21,10 +19,6 @@ from .representative_mixin import RepresentativeViewMixin
 class HomeView(PositionFormMixin, RepresentativeViewMixin,
                generic.TemplateView):
     template_name = 'home.html'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, *args, **kwargs):
-        return super(HomeView, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
         c = super(HomeView, self).get_context_data(**kwargs)
