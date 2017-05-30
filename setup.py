@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
-setup(name='political-memory',
+setup(name='meopol',
     version='0.0.1',
-    description='Political Memory Project Memopol',
+    description='Memopol Project',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
     author='James Pic, Laurent Peuch, Arnaud Fabre, Nicolas Joyard',
     author_email='cortex@worlddomination.be',
-    url='http://github.com/political-memory/political_memory/',
+    url='https://git.laquadrature.net/memopol/memopol',
     install_requires=[
         'django-autocomplete-light==3.2.0',
         'django-autoslug>=1.9,<1.10',
