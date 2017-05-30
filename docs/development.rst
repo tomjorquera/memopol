@@ -148,15 +148,15 @@ Install Python dependencies
 Then, install the package for development::
 
     $ pip install -e .
-    Obtaining file:///tmp/political_memory
-    Collecting django (from political-memory==0.0.1)
+    Obtaining file:///tmp/memopol
+    Collecting django (from memopol==0.0.1)
       Using cached Django-1.9-py2.py3-none-any.whl
 
     [output snipped for readability]
 
-    Installing collected packages: django, sqlparse, django-debug-toolbar, django-pdb, six, django-extensions, werkzeug, south, pygments, markdown, hamlpy, django-coffeescript, ijson, python-dateutil, pytz, political-memory
-      Running setup.py develop for political-memory
-    Successfully installed django-1.9 django-coffeescript-0.7.2 django-debug-toolbar-1.4 django-extensions-1.5.9 django-pdb-0.4.2 hamlpy-0.82.2 ijson-2.2 markdown-2.6.5 political-memory pygments-2.0.2 python-dateutil-2.4.2 pytz-2015.7 six-1.10.0 south-1.0.2 sqlparse-0.1.18 werkzeug-0.11.2
+    Installing collected packages: django, sqlparse, django-debug-toolbar, django-pdb, six, django-extensions, werkzeug, south, pygments, markdown, hamlpy, django-coffeescript, ijson, python-dateutil, pytz, memopol
+      Running setup.py develop for memopol
+    Successfully installed django-1.9 django-coffeescript-0.7.2 django-debug-toolbar-1.4 django-extensions-1.5.9 django-pdb-0.4.2 hamlpy-0.82.2 ijson-2.2 markdown-2.6.5 memopol pygments-2.0.2 python-dateutil-2.4.2 pytz-2015.7 six-1.10.0 south-1.0.2 sqlparse-0.1.18 werkzeug-0.11.2
 
 Install client dependencies
 ===========================

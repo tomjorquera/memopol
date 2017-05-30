@@ -33,5 +33,4 @@ deploy:
   domain: memopol
   deployment_branch: master
   on:
-    repo: political-memory/political_memory
-    branch: master
+    repo: memopol/memopol master
