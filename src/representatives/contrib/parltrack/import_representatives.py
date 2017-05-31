@@ -91,6 +91,11 @@ class ParltrackImporter(GenericImporter):
                 return
 
         changed = False
+        # Issue 185. We must have a Birth date for our mep, to allow import
+        # and slugifying stuff.
+        if not "Birth" in mep_json:
+            mep_json["Birth"] = {"date": "9999-01-01T00:00:00", "place":""}
+
         slug = slugify('%s-%s' % (
             mep_json["Name"]["full"] if 'full' in mep_json["Name"]
             else mep_json["Name"]["sur"] + " " + mep_json["Name"]["family"],
