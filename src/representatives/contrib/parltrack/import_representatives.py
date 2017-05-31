@@ -301,6 +301,11 @@ class ParltrackImporter(GenericImporter):
             except Constituency.DoesNotExist:
                 constituency = Constituency(name=local_party)
                 save_constituency = True
+            except Constituency.MultipleObjectsReturned:
+                # There is more than one constituency with that name.
+                # We must filter them by country.
+                constituency = Constituency.objects.get(name=local_party,
+                        country_id=country_id)
 
             if constituency.country_id != country_id:
                 constituency.country_id = country_id
