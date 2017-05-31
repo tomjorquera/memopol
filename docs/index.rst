@@ -12,7 +12,6 @@ Contents:
    :maxdepth: 2
 
    usage
-   deploy-openshift
    deploy-custom
    administration
    scores
