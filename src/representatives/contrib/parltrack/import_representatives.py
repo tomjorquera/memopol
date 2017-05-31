@@ -11,6 +11,7 @@ from django.apps import apps
 from django.db import transaction
 from django.utils import timezone
 from django.utils.text import slugify
+from django.core.exceptions import MultipleObjectsReturned
 
 from representatives.models import (Address, Constituency, Country, Email,
                                     Group, Mandate, Phone, Representative,
@@ -301,7 +302,7 @@ class ParltrackImporter(GenericImporter):
             except Constituency.DoesNotExist:
                 constituency = Constituency(name=local_party)
                 save_constituency = True
-            except Constituency.MultipleObjectsReturned:
+            except MultipleObjectsReturned:
                 # There is more than one constituency with that name.
                 # We must filter them by country.
                 constituency = Constituency.objects.get(name=local_party,
